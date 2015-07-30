@@ -1,0 +1,16 @@
+# Site settings
+title: Ash的blog
+email: 578410647@qq.com
+description: > # 总得记录点什么.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://ash-liu.github.io" # the base hostname & protocol for your site
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+layouts:     ./_layouts
+include:     ['.htaccess']
+
+# Build settings
+markdown: Kramdown 
+markdown_ext: markdown,mkd,mkdn,md
+textile_ext: textile
