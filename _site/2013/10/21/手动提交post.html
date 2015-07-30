@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>手动提交post</title>
+  <meta name="description" content="之前提到过http://scriptogr.am/出了点问题，导致提交的中文名无法识别，每次都要手动修改并提交到dropbox，有点浪费时间，今天看了下dropbox的api自己写了个脚本来完成。">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://ash-liu.github.io/2013/10/21/%E6%89%8B%E5%8A%A8%E6%8F%90%E4%BA%A4post.html">
+  <link rel="alternate" type="application/rss+xml" title="Ash的blog" href="http://ash-liu.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ash的blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">手动提交post</h1>
+    <p class="post-meta">Oct 21, 2013</p>
+  </header>
+
+  <article class="post-content">
+    <p>之前提到过http://scriptogr.am/出了点问题，导致提交的中文名无法识别，每次都要手动修改并提交到dropbox，有点浪费时间，今天看了下dropbox的api自己写了个脚本来完成。</p>
+
+<h3 id="dropbox">Dropbox验证与提交</h3>
+<p>为了提交文件到Dropbox，需要声请一个app，声请之后会有一个App key与App secret，这在0Auth中会用到，然后一步一步根据Dropbox的官方文档就能完成验证，并实现upload文件。参见<a href="https://www.dropbox.com/developers/core/start/python">这里</a>。</p>
+
+<h3 id="token">保存token</h3>
+<p>文档里面的过程每次都需要在线去验证，为了免去麻烦，可以把得到的token变量保存到本地(序列化到本地)。python直接使用cPickle:</p>
+
+<pre><code>#保存变量到文件
+cPickle.dump(access_token, open("token", "wb"))
+#读取变量
+access_token = cPickle.load(open("token", "rb"))
+</code></pre>
+
+<p>所以，先用文档demo跑一遍，拿到token后就无需再次验证了，以后直接从文件得到token即可。</p>
+
+<h3 id="section">命名文件</h3>
+<p>之前就是无法识别中文名字，所以把提交的文件名用日期加一个random数来表示。免得每次修改代码，把需要上传的文件名也通过参数传递进去，最后，在scriptogr.am的设置里面，设置自动从Dropbox里面发布文章。(我猜测应该是自动同步吧，还没有验证)。</p>
+
+<hr />
+<p>开始我没有看scriptogr.am的开发文档，原来可以直接通过scriptogr.am的api提交文章的，这个下次再来研究吧，http的api直接用requests库就可以搞定的。</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ash的blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Ash的blog</li>
+          <li><a href="mailto:578410647@qq.com">578410647@qq.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text"></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

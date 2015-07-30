@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>整个七牛做图床</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://ash-liu.github.io/2015/07/13/zheng-ge-qi-niu-zuo-tu-chuang.html">
+  <link rel="alternate" type="application/rss+xml" title="Ash的blog" href="http://ash-liu.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ash的blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">整个七牛做图床</h1>
+    <p class="post-meta">Jul 13, 2015</p>
+  </header>
+
+  <article class="post-content">
+    <p><img src="http://7xk84a.com1.z0.glb.clouddn.com/qiniu.png" alt="image" /></p>
+
+<p>存储一些静态文件(比如图片，简单文件)的需求还是有的，至从我的linode关停后，就在考虑整个能够外链的服务。首相想到的当然是又拍了，但是看了下发现都是需要资费的，没有入门免费级别的产品。于是又找到了七牛，正好满足我的需求：基本级别免费，有可用api或者工具来上传数据。</p>
+
+<p>七牛的注册还是要花点时间的，因为要验证身份，所以需要上传身份证然后等个一两天，验证通过了才算正式成为了入门级别用户。不验证身份也是可以的，只不过没有办法使用api或者工具而已，只能通过web的方式管理数据，这样就太麻烦了。</p>
+
+<p>首先在七牛的后台建立一个项目，专门用来存储需要外链的临时文件，然后再到开发者平台–账号–密钥找到账号的AK和SK，其实这里就可以看到，所有的项目都是公用同一个key的，略显寒掺。有了项目的名称，和这两个key，我们就可以使用命令行工具或者api来操作数据了。</p>
+
+<p>我使用的是命令行工具qrsync，在文档中心–资源下载–工具下面就可以找到它(再次吐槽下七牛混乱的连接逻辑，反正我是经常要找东西找不到，上次找到了东西下次又得找半天)。使用也很简单，参照它的说明建立一个json，然后执行就ok了。由于外链的前缀是相同的，所以只要文件名就可以得到最终的url。</p>
+
+<p>最后，为了方便脚本的调用，我在alfred里面设置了一个workflow，直接快捷键来调用qrsync更新，这里就补细说了。从最用效果来看，一般般吧，因为没法直接copy到最终的url，总感觉不完美，或许使用api+python可以实现的更加优雅点，懒得整了。</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ash的blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Ash的blog</li>
+          <li><a href="mailto:578410647@qq.com">578410647@qq.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text"></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

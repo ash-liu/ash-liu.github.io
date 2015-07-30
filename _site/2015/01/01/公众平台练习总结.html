@@ -1,0 +1,76 @@
+<p><img src="http://www.ashliu.com:8080/uploads/23564wechat.jpg" alt="" /></p>
+
+<p>微信的E文名:<strong>wechat</strong>，蛮好听的。</p>
+
+<p>从4月2日开始玩的公众账号，到今天11日已经10天了。从最初的到处找大号follow学习，到自己玩自动回复，过程还是蛮有乐趣的，所以简单总结下，以备不时之需。</p>
+
+<hr />
+
+<h3 id="section">编辑模式简介</h3>
+<p>微信默认的就是这种模式，进去之后简单的设置规则就可以自动的回复。有大牛说只需要这个就可以满足绝大部分的需求，我尝试了一下，还是比较麻烦，比如回复最近文章，每次发布新blog后都需要调整那个规则，而且为了保证时间顺序，还需要按顺序重新选择所有需要回复图文——这是导致我放弃这种模式的主要原因。</p>
+
+<p>相比于开发者模式，编辑模式仍然是最方便和低成本的方式。在对功能没有需求的情况下，通过合理的设置规则，是玩微信的最佳实践。</p>
+
+<h3 id="section-1">开发者模式简介</h3>
+<p>顾名思义，开发者的模式。他们的差别在于：编辑模式下，微信收到发送者的消息时，会通过你设置的规则来得到需要返回的内容，并自动返回给发送者；开发模式下，微信在收到消息后，会把消息发送到你设定的服务器，然后服务器处理后得到返回的内容，并返回到微信，最后由微信在把内容传递到发送者。所以，他们的差别就是<strong>处理用户发送信息的方式不同</strong>。(以上的微信均指微信公众账号的服务器)</p>
+
+<p>开发者模式下需要具备服务器端的一些知识，会稍显高端，同时也需要提供服务器资源来支持，所以成本也很高，但好处是对信息的处理非常的灵活，有很高的自定义性。</p>
+
+<h3 id="section-2">关于验证过程</h3>
+<p>开启开发者模式需要成为开发者，这个过程为验证。验证首先需要提供你的url和Token，url就是你的web服务器地址，现在微信只支持80端口(真是太霸道了!)，Token有点像口令的意思，你知我知，到时候我用这个加密，你才能够验证是否正确。</p>
+
+<p>具体的过程腾讯的<a href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97">文档</a>说明的很清楚，用python来表达就是这样的:</p>
+
+<pre><code>token = "your_token"
+args = [token, request.args.get("timestamp"), request.args.get("nonce")]
+args.sort()
+argStr = ''.join(args)
+code = hashlib.sha1(argStr).hexdigest()
+if code == request.args.get("signature"):
+	return request.args.get("echostr")
+</code></pre>
+
+<p>别忘了，是get方式。</p>
+
+<h3 id="section-3">解析微信发来的消息</h3>
+<p>通过查看文档，是用xml包装后作为post的参数发过来的，所以解析post的内容就能得到需要的参数。这里直接使用<a href="http://docs.python.org/2/library/xml.etree.elementtree.html">ElementTree</a>就可以完成:</p>
+
+<pre><code>''' 解码xml的辅助函数 '''
+def parse_xml(xml):
+	root = ET.fromstring(xml)
+	msg = {}
+	for child in root:
+		msg[child.tag] = child.text
+	return msg
+</code></pre>
+
+<p>具体会得到哪些参数，可以查看<a href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97">文档</a>中的描述。</p>
+
+<h3 id="section-4">构建发送的消息</h3>
+<p>微信定义的消息有好几种，最简单的就是文本消息，当然了其他的也差不多，都是按照官方提供的模板来画瓢，并返回到微信服务器。这里有点需要注意是超时问题，微信服务端在发送后5秒内没响应就会断开连接，那用户就无法接收你返回的消息了。啥？为啥不能主动发送给微信服务器？反正就官方提供的这些api来看是不行的，是否有其他hack的方式就不清楚了。所以，语音提醒这个公众账号真是逆天的存在啊。</p>
+
+<h3 id="section-5">处理消息</h3>
+<p>处理消息就是根据输入内容得到需返回的内容。以ash说为例，有查询历史的，有小黄鸡聊天的，有查天气的等等。看起来好多，其实大都是一样的道理：</p>
+
+<ul>
+  <li>首先由输入信息得到是啥命令，是查询历史还是查天气等大分类；</li>
+  <li>然后再进一步的，通过抓取相关web页面，并匹配出需要的内容；</li>
+  <li>最后组装成微信定义的xml返回；</li>
+</ul>
+
+<p>所以核心问题就是<strong>抓页面&amp;匹配内容</strong>。用python来完整这个真是得心应手：左手urllib2，右手BeautifulSoup，必要时再来个re，可以解决绝大数问题。其中得到历史记录需要web blog的配合，这可以通过抓取blog的feed页面来间接完成。</p>
+
+<p>这里唯一比较特别的是小黄鸡，也即simsimi。如果有钱可以搞个官方的api用，没钱的话就像我一样，模拟web访问<a href="http://www.simsimi.com/talk.htm">这个</a>地址得到cookie，然后再用这个cookie去欺骗sisimi——这是人人网那帮人教的。虽然比较猥琐，但效果不错，如果把session信息用pickle序列化到本地，省去得到cookie的时间，完全可以满足5秒的时限。</p>
+
+<h3 id="mark">mark一些库</h3>
+<p>python还是用的太少，很多好用的库都不知道，这里mark下：</p>
+
+<ul>
+  <li><a href="https://code.google.com/p/feedparser/"><em>feedparser</em></a>：有了它解析rss就是浮云了；</li>
+  <li><a href="http://docs.python.org/2/library/xml.etree.elementtree.html"><em>xml.etree.ElementTree</em></a>：解析xml的工具；</li>
+  <li><a href="http://docs.python-requests.org/en/latest/"><em>requests</em></a>：一个比urllib2更加上层的库，号称是给人用的http库，感觉用起来比urllib2方便许多；</li>
+</ul>
+
+<hr />
+<p>虽然知道写这些没人呢，但说好了要总结的。另外，markdown写作真是惬意！</p>
+

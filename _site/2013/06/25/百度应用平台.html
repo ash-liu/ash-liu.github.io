@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>百度应用平台</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://ash-liu.github.io/2013/06/25/%E7%99%BE%E5%BA%A6%E5%BA%94%E7%94%A8%E5%B9%B3%E5%8F%B0.html">
+  <link rel="alternate" type="application/rss+xml" title="Ash的blog" href="http://ash-liu.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ash的blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">百度应用平台</h1>
+    <p class="post-meta">Jun 25, 2013</p>
+  </header>
+
+  <article class="post-content">
+    <p><img src="http://www.ashliu.com:8080/uploads/44711jpeg" alt="" /></p>
+
+<p>baidu的logo百度了半天都没有高清的，只能用这个将就了。</p>
+
+<p>昨天一哥提到了BAE——百度的app平台，怂恿我尝试下。这个平台我是较早就有关注的，但感觉没有需求就pass了，毕竟我有linode，可以满足我绝大部分的在线服务器的需求。今天在家没啥事就体验了把。</p>
+
+<p>创建app之后，就可以看到svn地址了，直接使用svn co命令把初始的版本下到本地，发现里面就是3个文件：一个熊爪图标，一个app配置文件，一个python文件。那就动手被，编辑这个python文件如下：</p>
+
+<pre><code>#-*- coding:utf-8 -*-
+
+import web
+import os
+
+urls = (
+	'/', 'Index',
+)
+
+app_root = os.path.dirname(__file__)
+templates_root = os.path.join(app_root, 'templates/')
+render = web.template.render(templates_root)
+
+class Index :
+	def GET(self):
+		return render.index()
+
+# BAE app需要如此调用
+app = web.application(urls, globals()).wsgifunc()
+from bae.core.wsgi import WSGIApplication
+application = WSGIApplication(app)
+</code></pre>
+
+<p>然后建立一个templates目录，里面编辑一个index.html，这样基本的web.py环境就搭建好了，我是扒了一个bootstrap的demo放index.html里面。然后使用svn add *添加新的文件和目录，并svn ci -m ‘update log’提交到svn仓库。</p>
+
+<p>在BAE的后台刷新下页面，就可以看到更新了，可以使用预览查看功能，也可以直接发布算逑，反正都是玩意儿:)</p>
+
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ash的blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Ash的blog</li>
+          <li><a href="mailto:578410647@qq.com">578410647@qq.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text"></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

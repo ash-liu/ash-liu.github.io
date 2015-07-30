@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>下载晓说</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://ash-liu.github.io/2013/04/21/%E4%B8%8B%E8%BD%BD%E6%99%93%E8%AF%B4.html">
+  <link rel="alternate" type="application/rss+xml" title="Ash的blog" href="http://ash-liu.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ash的blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">下载晓说</h1>
+    <p class="post-meta">Apr 21, 2013</p>
+  </header>
+
+  <article class="post-content">
+    <p><img src="http://www.ashliu.com:8080/uploads/588920130329162038204373.jpg" alt="" /></p>
+
+<p>近来都是走路上下班，路上时间很充分，订阅的一些播客基本赶不上我听的速度。想想每天上下班近100分钟的时间，不找点什么听听还是蛮可惜的，刚巧有人推荐晓说，于是在youku上看了一段，还真不错，这个胖子还蛮能侃的，而且肚子里有的是实货，那就下载下来整个mp3听听呗。</p>
+
+<h3 id="youku">抓youku的播放地址</h3>
+<p>首先当然是从优酷里面抓取出各集的播放地址，打开优酷查找晓说很容易就找到<a href="http://www.soku.com/detail/show/XOTg5NTMy?siteId=14">这个</a>地址，里面是第一季晓说的所有播发地址，简单查看页面源码就就可以分析出匹配的规则：</p>
+
+<pre><code>def get_youku_urls(target_url):
+	request = requests.get(target_url)
+	return re.findall("\&lt;a href=\"(.+)\" target=\'_blank\' title=", request.text)[61:]
+</code></pre>
+
+<p>需要的库有requests和re，用requests来get页面，用findall来匹配结果。里面这个诡异的61，那是因为页面里面居然有土豆的播放地址！真是一家亲啊，懒得遍历列表去除土豆地址，就直接切片了。</p>
+
+<h3 id="flv">下载flv文件</h3>
+<p>上面已经分析出优酷的播放地址了，那如何下载这个flash文件呢？这个得使用<a href="http://www.flvcd.com/">硕鼠</a>来解析源文件地址(不得不说这个网站名字蛮形象的)。开始我以为是需要在硕鼠的首页通过post得到数据，进一步看原来post得到的只是一个跳转，跳转后get的<a href="http://www.flvcd.com/parse.php">这个</a>地址，参数名是kw，值即是我们在首页的输入。</p>
+
+<p>仍然是先在chrome中分析页面，发现硕鼠给我们解析的地址并不是一个，而是分割成了好几个，所以我们需要匹配出这些地址：</p>
+
+<pre><code>FLVCD = "http://www.flvcd.com/parse.php"
+def get_flvcd_file_urls(youku_url):
+	param = {'kw':youku_url}
+	request = requests.get(FLVCD, params=param)
+	return re.findall(r"\&lt;BR\&gt;\&lt;a href=\"(.+)\" target", request.text)
+</code></pre>
+
+<p>这样就得到了所有flv文件的下载地址，接下来是下载。下载直接使用外部工具好了，如果自己写的话，还需要处理location重定向的麻烦，不如直接使用wget等工具来的快速：</p>
+
+<pre><code>AGENT = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)"
+os.system("wget %s -O out/%s.flv -U '%s'" %(flv_url, 0, AGENT))
+</code></pre>
+
+<p>上面代码只是一个示例，里面需要注意的是设置user agent，如果不设是下载不到东西的:)</p>
+
+<h3 id="flvmp3">从flv中导出mp3</h3>
+<p>现在下载到的还只是flv文件，放手机里听当然是mp3了，所以还需要从flv中导出音频流成mp3格式，这时就要使用ffmpeg了(hello ffmpeg，long time no see!)。本以为安装ffmpeg是一个痛苦的过程(linux下的经验)，但戏剧的是osx已经给装好了(或者是我之前装的，太久没用忘记了。。)，而且还装了mp3lame库，从而可以直接编解码mp3，真是太幸运了。google了一下如果从flv导出mp3，如下：</p>
+
+<pre><code>os.system("ffmpeg -i out/%s.flv -acodec libmp3lame -ac 2 -ab 128 -vn -y %s.mp3" %(i, i))
+</code></pre>
+
+<p>上面已经提到过，每期节目都被分割成了几个部分，所以转成的mp3也有几个，接下来通过这个命令把几个mp3合成一个:</p>
+
+<pre><code>cat 0.mp3 1.mp3 2.mp3 3.mp3 &gt; out.mp3
+</code></pre>
+
+<p>有没有觉得很无厘头？反正我是这么觉得的。但是没办法，找了好些方式都没法简单的完成合并mp3这件事，只有这个方法是最简单的，但是缺点也很显然，那就是ID3 tag信息不准确，所以导致显示的总时长有问题(暂时先这样，下次单独整个程序把时长信息修正下，具体方式都已经想好了)，但是播放是没有问题的。</p>
+
+<h3 id="section">粘合</h3>
+<p>最后，通过python可以很容易的把上面一步一步的过程粘合以来，具体代码就不贴了。然后就让它慢慢的去扒吧(扒手的扒)。无聊中，google下诗经，有&lt;魏风*硕鼠&gt;曰：</p>
+
+<pre><code>硕鼠硕鼠，无食我黍（xi）！
+三岁贯汝，莫我肯顾。
+逝将去汝，适彼乐土。
+乐土乐土，爰（yuán）得我所。
+</code></pre>
+
+<p>我现在是不是就是一只硕鼠，在啃youku的黍呢？</p>
+
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ash的blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Ash的blog</li>
+          <li><a href="mailto:578410647@qq.com">578410647@qq.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text"></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

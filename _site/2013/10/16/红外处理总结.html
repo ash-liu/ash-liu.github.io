@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>红外处理总结</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://ash-liu.github.io/2013/10/16/%E7%BA%A2%E5%A4%96%E5%A4%84%E7%90%86%E6%80%BB%E7%BB%93.html">
+  <link rel="alternate" type="application/rss+xml" title="Ash的blog" href="http://ash-liu.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ash的blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">红外处理总结</h1>
+    <p class="post-meta">Oct 16, 2013</p>
+  </header>
+
+  <article class="post-content">
+    <p><img src="http://www.ashliu.com:8080/uploads/2997412312321.jpg" alt="" /></p>
+
+<p>红外还是很通用的玩意。记录下近期为了处理产品中红外的功能所做得处理。</p>
+
+<h3 id="section">压缩</h3>
+<p>首先就是红外码的压缩问题。之前由于使用的红外码非常少，所以都采用直接存储的模式，即把所有高低电平的时间长度顺序的保存下来。这么做显然是最简单的方式，但同时也是最费存储空间的方式，以当前测试的遥控信号来看，保存一个键至少300个bytes，为了方便flash的读写，那么一个flash块只能存储一个键。</p>
+
+<p>那么如何存储红外信号呢？上网找了一些论文，发现都是通过把每一个bit(包括起始bit，1-bit和0-bit)的高低电平表示成点的x和y坐标，那么所有的bit在坐标系里面就会分布成3个区域:起始bit一个区域，1-bit一个区域，0-bit一个区域。起始bit很容易区分，第一个bit就是它，然后1-bit和0-bit可以用两点之前的距离来区分。比如，可以假定起始bit后第一个bit为0-bit，其坐标为(x0, y0)，第二个点坐标为(x1, y1),那么可以很容易就得到两点之间的距离为: ((x1-x0)^2 + (y1-y0)^2)^(1/2)。如果这个距离大于一个临界值(可以取0.1ms)，第二个点就是1-bit，否则就是0-bit。后续其他点用同样的方式来判别。在判别出1-bit或0-bit后，就可以把红外信号表示成0/1的bits流，对于常见的红外信号96个bits(12bytes)就搓搓有余了，加上其他表征各bit时间长度的信息等，总共32bytes不到。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>一些改进。用单片机来计算距离总是感觉不靠谱，复杂度太高了。可以考虑做如下改进：使用</td>
+      <td>x1-x0</td>
+      <td>+</td>
+      <td>y1-y0</td>
+      <td>来间接判断，如果这个值大于距离阈值的2^(1/2)即为不同的类别。可以证明这两个判断是等效的，但是实现起来就简单很多了。后来用python做了一些实际数据的验证，效果非常的好，推荐使用。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="section-1">存储</h3>
+<p>在压缩完成后，存储就简单很多了。由于每个键在压缩后不到32bytes，所以考虑对齐后用32bytes来存储一个按键。读取时直接使用uchar code *指针做memcpy，写入时使用read-update-erase-write来完成，考虑到ram不足，需要read到一个可以复用的ram区。</p>
+
+<p>为了方便红外码管理，把红外存储区分为了9个page，每个page可以存储64个红外键码。其中0号page为系统使用，主要是为了给没有终端或者中控的情况使用。其他8个页面与输入的设备数一一对应，而64个键码也可基本满足常用需求，所以这样就可以达到不适用任何遥控的目的。</p>
+
+<h3 id="section-2">使用终端和上位机</h3>
+<p>使用移动app为终端，直接下socket命令与主机交互，由于红外码是存储在主机中，交互过程只需提供存储的编号即可，非常的快捷稳定。但是只提供系统app会比较单一，因为它只能一个一个的学习红外码，效率比较低下，只适合初次接触的遥控器。如果经常使用的遥控，最好提供一种更加快捷的学习方式，于是就需要一个上位机。</p>
+
+<p>上位机就是用来提供整个page的导入与导出。对于已经通过app学习OK的page(也就是一种设备的所有遥控键码)，可以通过导出到文件保存起来，再下次碰到同样设备的时候，直接使用导入功能即可，就无需再次每个按键的学习了。</p>
+
+<h3 id="section-3">关于单片机</h3>
+<p>单片机应该还算比较容易的一个东西，但我也是越用越觉得可以玩的更加深入。比如flash，现在的管理就比较初略，里面虽然已经有了两套程序，但还有不少的剩余，那么为了高效利用，其实可以考虑实现一个简单的fs。还有ram，现在的复用只是很简单粗暴的指针指过去，非常的弱，那是否应该把动态的分配管理加进去呢？等等，发现只要去折腾，总有你玩的。</p>
+
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ash的blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Ash的blog</li>
+          <li><a href="mailto:578410647@qq.com">578410647@qq.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text"></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

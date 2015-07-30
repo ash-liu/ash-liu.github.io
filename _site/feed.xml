@@ -5,37 +5,9 @@
     <description></description>
     <link>http://ash-liu.github.io/</link>
     <atom:link href="http://ash-liu.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Jul 2015 15:37:44 +0800</pubDate>
-    <lastBuildDate>Thu, 30 Jul 2015 15:37:44 +0800</lastBuildDate>
+    <pubDate>Thu, 30 Jul 2015 17:05:24 +0800</pubDate>
+    <lastBuildDate>Thu, 30 Jul 2015 17:05:24 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
-    
-      <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 30 Jul 2015 19:23:40 +0800</pubDate>
-        <link>http://ash-liu.github.io/jekyll/update/2015/07/30/welcome-to-jekyllwww.html</link>
-        <guid isPermaLink="true">http://ash-liu.github.io/jekyll/update/2015/07/30/welcome-to-jekyllwww.html</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
     
       <item>
         <title>Welcome to Jekyll!</title>
@@ -66,35 +38,359 @@
       </item>
     
       <item>
-        <title>优酷</title>
-        <description>&lt;p&gt;Title: 我要看优酷
-Date: 2014-09-24 
-Tags: technology&lt;/p&gt;
+        <title>寻找新的基地</title>
+        <description>&lt;p&gt;前几天登陆&lt;a href=&quot;http://scriptogr.am&quot;&gt;scriptogr.am&lt;/a&gt;的时候就看到了他们的重要公告：&lt;strong&gt;停止服务！&lt;/strong&gt;，看了下blog的说明，没有明确的原因，截止日期是8-15。额，看来只有重新找窝了。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://www.techweb.com.cn/upload/2011/0507/1304753282237.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;世界都在看的优酷，就在今天认怂了，关闭了所有的TV终端，不能怨优酷不坚挺，只能说xx总局太无耻！为什么总干些让人问候他祖先的事情呢？&lt;/p&gt;
-
-&lt;p&gt;我是一周前才买的小米盒子2，回来后克服了重重困难，终于让父母和老婆学会了用盒子看优酷，也让他们认可了这400块钱是物有所值的，可这尼玛还没有捂热呢，就出了这岔子，果断又被老婆教育了一顿——看吧，你就是靠谱！可，这关我鸟事啊！&lt;/p&gt;
-
-&lt;p&gt;当然不能就这么算了！作为一个伪极客，我相信肯定存在一种欺骗手段，能够让盒子伪装一下去连接优酷。果断google之，还真有！而且比我想象的要简单。&lt;/p&gt;
-
-&lt;p&gt;我参考的就是这个：&lt;a href=&quot;http://www.hdpfans.com/thread-480076-1-1.html&quot;&gt;http://www.hdpfans.com/thread-480076-1-1.html&lt;/a&gt;。
-核心思想就是修改/system/build.prop中关于modle的定义，改成一个其他手机或者平板就可以了。&lt;/p&gt;
-
-&lt;p&gt;但是要修改这个文件还真不是容易的事。我最开始没有用re文件管理器，因为要root才能修改，我觉得麻烦了。直接使用了adb shell来做，参考网上的方式把只读的system目录重新mount为可读写的，但是怎么都不成功，提示没有权限。进一步track，在stackoverflow上看到有人说要root。。于是，再次回到了要root。&lt;/p&gt;
-
-&lt;p&gt;首先尝试使用一键root之类的app，发现行不通，估计是android4.4安全系数大增，这些老革命都找不到可用的后门了。再次求助万能的google，发现小米论坛中已经有大神解决了这个问题(见&lt;a href=&quot;http://bbs.xiaomi.cn/thread-10430330-1-1.html&quot;&gt;这里&lt;/a&gt;)，并制作了bat傻瓜包，于是果断用PC来root，中间过程也很曲折，又是搬电视，又是找鼠标。关键是前几次操作，每次都root不成功，后来不知道怎么回事，突然就OK了。然后安装re管理器，并修改好那个modle。&lt;/p&gt;
-
-&lt;p&gt;但还没有完，wifi又连不上去了！看了下连接的过程，是无法获取到ip，看来是路由器也被”成功欺骗了”，mac又和之前一样，所以一直不能正确分配ip，那好办，手动指定一个ip地址，保存后网络OK。&lt;/p&gt;
-
-&lt;p&gt;至此，又可以安心的看youku了。&lt;/p&gt;
-
-&lt;p&gt;PS. 为啥youku不用马甲发个教程呢？&lt;/p&gt;
 </description>
         <pubDate>Thu, 30 Jul 2015 00:00:00 +0800</pubDate>
-        <link>http://ash-liu.github.io/2015/07/30/%E4%BC%98%E9%85%B7.html</link>
-        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/30/%E4%BC%98%E9%85%B7.html</guid>
+        <link>http://ash-liu.github.io/2015/07/30/new-blog-service.html</link>
+        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/30/new-blog-service.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>反脆弱——从不确定性中获益</title>
+        <description>&lt;p&gt;作者已经在前作黑天鹅里面讲述了一个真理，那就是无法避免的黑天鹅现象，那么既然这种不确定性是无法避免的，我们应该采取什么样的心态来面对它们呢？作者说我们不要做被风一吹就熄灭的蜡烛，而是要成为越吹越旺盛的炉火，我们不仅应该在不确定性中存活下来，而且还应该借助不确定性变得更加强大。&lt;/p&gt;
+
+&lt;p&gt;生命体的不断进化就是反脆弱性的一种体现，在面对挑战的时候积极的改变者总能够更好的延续下去，并且具备更强大的竞争力，反观那些脆弱者会被挑战所淘汰。所以也可以这么说：杀不死我的必使我强大，而杀死我的却能够让别人强大。通过这个结论就可以推出另一个重要的推论：&lt;strong&gt;&lt;em&gt;要想更具竞争力，那么就不应该惧怕不确定性，反而应该积极的拥抱它&lt;/em&gt;&lt;/strong&gt;。后面还有好长的目录，但看起来是对上面推论的正反论证，我只抓中心，所以就直接略过。&lt;/p&gt;
+
+&lt;p&gt;作者的论点应该可以泛化为：我们对压力(或者内心的恐惧)的态度以及压力对我们进步的作用。我们不应该逃避压力，直面它们才能使我们的内心更加强大，相比之无法承受这些压力和恐惧的人，我们就相当于进化了一步，所以更具竞争力。&lt;/p&gt;
+</description>
+        <pubDate>Wed, 29 Jul 2015 00:00:00 +0800</pubDate>
+        <link>http://ash-liu.github.io/2015/07/29/fancuiruoxing.html</link>
+        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/29/fancuiruoxing.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>读创新者的窘境</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://7xk84a.com1.z0.glb.clouddn.com/chuangxinzhejiongjin.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;听说&lt;/h3&gt;
+&lt;p&gt;这部神作很早就有耳闻，一直没有拜读，直到最近读过了罗辑思维的登高四书，里面有一本专门讲颠覆式创新的，几乎全篇都有提创新者的窘境，于是果断的入手了一本。通篇读下来，眼界大开，同时感觉后悔读了神马登高四书——被提前剧透了结论嘛，并且登高这本明显就是照搬的创新者。。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;论点&lt;/h3&gt;
+&lt;p&gt;作者从硬盘企业的失败现象出发，提出了一个匪夷所思的窘境：&lt;strong&gt;&lt;em&gt;就算是成熟的企业，也无法避免被破坏式变革所颠覆的宿命&lt;/em&gt;&lt;/strong&gt;。所谓的成熟企业，是指兢兢业业的恪守市场规律，满足客户和股东利益，并且有着科学的管理规范的企业，他们理应是学院派或者华尔街所看好的范例；所谓的破坏式变革，这是相对于延续性变革而言，它不是对当前产品/服务的修修补补，而且一种另起炉灶的重建，而且往往是从低端的，其他场景切入进来。从另一个角度来说，这可能也是打败行业寡头的唯一办法。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;论据&lt;/h3&gt;
+&lt;p&gt;作者给出的解释简单来说，就是因为推动企业成功的那些优良品德，同样会阻止它们拥抱破坏性变革，而这些破坏性技术则有朝一日成为它们的终结者。都是哪些优良品德呢：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;听取客户的意见&lt;/li&gt;
+  &lt;li&gt;大力投资客户所希望的改进&lt;/li&gt;
+  &lt;li&gt;争取更高的利润以回报股东和员工&lt;/li&gt;
+  &lt;li&gt;最求更大的市场等等&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;为什么企业会被这些品德所羁绊呢，作者给出了4条破坏性技术的原则：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;企业的资源分布取决于客户和投资者&lt;/em&gt;&lt;/strong&gt;。为了更具竞争力，企业的资源会更加倾向于客户已经认可的需求，而忽视掉破坏性的的技术，因为这些破坏性技术在刚开始时，总是代表着低利润，低性能等等特性，它所具备的优势可能是当前客户所不在意的一些方面。所以，作为一个成熟的决策者，理所当然的会忽视掉这些。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;小市场不能解决大企业的增长需求&lt;/em&gt;&lt;/strong&gt;。这对应着破坏性技术的另一个特点，即总是从小众，低端的市场出发，那么在企业眼里它仅仅是一个食之无味，弃之也不可惜的鸡肋。所以不要说管理层会排斥它，甚至一般的员工也会排斥它，因为它会拖累员工个人的绩效，从而失去晋升的机会。所以这也注定了破坏性创新无法在企业内部的发生。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;无法对并不存在的市场进行分析&lt;/em&gt;&lt;/strong&gt;。破坏性创新往往是从开辟一个全新的市场起步，那么对于市场人员而言，根本就无法做出可信赖的分析，因为他们的分析往往来至于当下的客户，或者是臆想的客户的反馈，那么当然会得到负面的结果(前面有提到：因为更低的性能，更低的性价比，和看似无用的新特性)。所以说除非真刀真枪的进去摸索一番，否则不可能有什么结果。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;技术供给可能并不等同于市场需求&lt;/em&gt;&lt;/strong&gt;。这一条感觉好晦涩。技术的发展往往快过客户的需求，在客户对主流参数的需求达到一个饱和点的时候，你技术再牛逼，对于客户而言是过剩的，客户选择的标准就会从&lt;strong&gt;功能&lt;/strong&gt;，转变到&lt;strong&gt;可靠性&lt;/strong&gt;，&lt;strong&gt;便捷性&lt;/strong&gt;和&lt;strong&gt;价格&lt;/strong&gt;上来，这个时候就给了破坏性技术可乘之机，因为它们往往具备这些其他属性，比如便捷，低价等。所以这里也可以看到，破坏性技术并不是轻而易举就可以干翻主流技术，这个翻身的点往往是发生在性能饱和处。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;怎么办？&lt;/h3&gt;
+&lt;p&gt;出路只有一条：&lt;strong&gt;顺应天命，道法自然&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;企图在内部强制推行破坏式技术是不可取的，它会像异物一样，引发母体强烈的排异反应。这很好理解，破坏式技术和母公司有着不同的RPV(资源，流程以及价值观)，放在一起必然是相互拖累，最后破坏性技术腹死胎中。&lt;/p&gt;
+
+&lt;p&gt;什么叫道法自然呢(书里面在这里提到了道德经，所以我果断放出了这句话，古文不是白读的~)：母公司应该正视这种颠覆，就像生老病死一样的，企图逆天而行总是不得好死。所以最好的办法就是新开一个小号，独立团队，自负盈亏，去重新实现符合破坏性技术的RPV。这样在大劫来临之际，可以成功的转世。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;个人的一些想法&lt;/h3&gt;
+&lt;p&gt;从某种程度上说，我对这套思路是无比赞同的，但是感觉又好像不是那么的让人信服，至少在IT行业不是那么的让人信服。RPV真的有那么大的能力，可以阻止破坏性技术的发生吗？对于国内的某些IT大佬，不是经常有新闻说分分钟copy创新公司的想法，然后直接把新技术干翻在地嘛。到底是这些创新算不上破坏性，还是说IT领域特别的PRV不适合这套理论？这其实都是值得不断思考的问题。&lt;/p&gt;
+
+&lt;p&gt;以上思考过后，在看到各种鼓吹颠覆式创新，理所应当的就能干翻各种大腕的神人培训的时候，就可以多一份理性。&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 28 Jul 2015 00:00:00 +0800</pubDate>
+        <link>http://ash-liu.github.io/2015/07/28/read-chuangxinzhedejiongjing.html</link>
+        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/28/read-chuangxinzhedejiongjing.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>看目录读书</title>
+        <description>&lt;p&gt;好久没有上多看读书，感觉都快遗忘这个平台了。人丑就得多读书，虽然穷了点买不起，但是看目录总是可以的吧，而且很多书看看目录就可以学到很多东西，所以我决定发起一个计划：&lt;strong&gt;看目录读书100日活动&lt;/strong&gt;。具体来说，就是每天看一本电子书，但不是真的购买了来看，而是仅仅通过查看目录和简介来归纳出书本的核心思想，并产出一篇短小的笔记。估算下大概20分钟以内就可以完成一篇，持续100天不知道能否坚持到底。&lt;/p&gt;
+
+&lt;p&gt;这个计划的难点还是在于找书。适合这样做的肯定是泛读类的书籍，但是也不能过于平淡，否则就太没意思了，但是没翻过又怎么知道是否太淡呢，所以最终也只能通过书名瞎蒙。额，先蒙段时间看看，说不定能总结出一套观书名识好坏的规律呢~&lt;/p&gt;
+
+&lt;p&gt;今天第一天。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;打破思维的框——激发创造力只需五步&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;新情景，新框架&lt;/li&gt;
+  &lt;li&gt;如何创造和使用框架&lt;/li&gt;
+  &lt;li&gt;质疑一切&lt;/li&gt;
+  &lt;li&gt;调查可能性&lt;/li&gt;
+  &lt;li&gt;发散思维&lt;/li&gt;
+  &lt;li&gt;聚合思维&lt;/li&gt;
+  &lt;li&gt;持续再评估&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;所谓的五部就是：首先需要有质疑一切的态度，然后着手调查看似不可能的各种可能性，基于调查的成果展开头脑风暴发散思维，然后建立约束条件聚合合理的思维，最后持续的评估迭代已有方案来寻求更细小的突破。&lt;/p&gt;
+</description>
+        <pubDate>Tue, 28 Jul 2015 00:00:00 +0800</pubDate>
+        <link>http://ash-liu.github.io/2015/07/28/read-books-100-days.html</link>
+        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/28/read-books-100-days.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>openwrt玩转摄像头——动作检测功能</title>
+        <description>&lt;p&gt;前面在网页显示里面用到了mjpg-streamer，这个工具单独拿来显示视频流是很不错的，但是和我们想达到的目标太过遥远，所以我们继续玩转更强悍的工具：&lt;strong&gt;motion&lt;/strong&gt;。现在才应该算是真正的开始，之前的那个仅仅是测试下摄像头。&lt;/p&gt;
+
+&lt;h3 id=&quot;motion&quot;&gt;关于motion&lt;/h3&gt;
+
+&lt;p&gt;motion的官方网址在&lt;a href=&quot;http://www.lavrsen.dk/foswiki/bin/view/Motion/WebHome&quot;&gt;这里&lt;/a&gt;，总的来说motion是一个可以从摄像头检测出画面变化的工具，在画面变化时(比如有人闯入，或者光线异常等)motion会保存画面，或者保存mpeg(通过ffmpeg)，还可以通过配置在这些事件发生时触发外部的命令，比如发送异常提醒邮件，sms等等。同时它也可以提供http流的实时观看。。真是强大的工具，基本上已经实现了我们所需的核心功能。&lt;/p&gt;
+
+&lt;h3 id=&quot;motion-1&quot;&gt;添加motion&lt;/h3&gt;
+
+&lt;p&gt;进入到openwrt的配置里面，可以发现已经包含了motion，直接勾选后编译下载。进入系统后，会发现/etc/motion.conf，为了方便修改，我们把它复制到自己的目录，然后编辑：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cp /etc/motion.conf /root/
+cd /root
+vi motion.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;里面是各种功能配置，每一个参数都可以看看，里面的注释非常的详尽。初次运行，我们大概需要关心一下的参数：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;daemon，是否以后台运行，为了方便我们看log以及随时修改，建议关掉；&lt;/li&gt;
+  &lt;li&gt;videodevice，我们当然是/dev/video0;&lt;/li&gt;
+  &lt;li&gt;width,height,framerate,长宽和帧率。最大可以设置到640*480，帧率设置10左右足以；&lt;/li&gt;
+  &lt;li&gt;stream_localhost,这个选on的话，就无法在其他机器上通过http查看，设置为off才可以，所以我们off；&lt;/li&gt;
+  &lt;li&gt;target_dir,图片已经视频的存储目录，我们暂时设置个/root，后期会设置到U盘里面。&lt;/li&gt;
+  &lt;li&gt;threshold,检测的灵敏度，数值越大越不灵敏。&lt;/li&gt;
+  &lt;li&gt;其他默认；&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;在/root下面运行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;motion -c motion.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;启动motion，不出意外的话，会提示错误，显示打开/dev/video0错误。这是因为我们开启了mjpg-streamer，它会开机启动并占用掉我们的cideo0设备，所以首先关掉这个：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/etc/init.d/mjpg-streamer stop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再次运行就一切正常了。我们可以在摄像头前面晃动物体，motion就会提示检测到异动，并保存图片，也可以通过web访问openwrt的8081端口，和mjpg-streamer一样的效果，通过http查看到实时的画面。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;存在的问题&lt;/h3&gt;
+
+&lt;p&gt;目前，我们至少存在2个问题：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;图片的存储空间不足。flash可用的也就那么几M，所以得外挂存储空间；&lt;/li&gt;
+  &lt;li&gt;现有的motion不支持ffmpeg。上面并没有提到添加ffmpeg，因为就算添加了还是一样的效果，都会提示ffmpeg的配置参数无效。所以得添加motion对ffmpeg的支持；&lt;/li&gt;
+  &lt;li&gt;由于ffmpeg有4M以上的体量，所以需要安装ipkg到外挂存储空间；&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;外挂存储空间&lt;/h3&gt;
+
+&lt;p&gt;这个最方便的解决办法当然是使用U盘了，但是rt5350只有一个u口，为了同时接U盘和摄像头，还需要外挂一个USB hub，刚好我手头有一个杂牌hub，接上即可工作。这里有2点需要注意：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;供电power，如果是使用5V1A的电源，在拔插usb的时候可能会电压异常，从而导致系统重启，一个U盘，一个摄像头，还有个hub，确实比较吃电。最好的办法是直接换成5V3A的，妥妥的稳定了。&lt;/li&gt;
+  &lt;li&gt;偶尔在拔掉USB hub时候会有kernel module提示错误，一长串的调用栈打印信息。由于不影响使用，我就懒得管它了。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;U盘的挂载，可以参考我之前的&lt;a href=&quot;http://scriptogr.am/ashliu/post/owusb&quot;&gt;文章&lt;/a&gt;，&lt;/p&gt;
+
+&lt;h3 id=&quot;motionffmpeg&quot;&gt;添加motion对ffmpeg的支持&lt;/h3&gt;
+
+&lt;p&gt;其实一直在说ffmpeg，应该是不准确的，应该是libffmpeg才对，真正的ffmpeg只是一个命令行工具，libffmpeg才是我们真正需要的。&lt;/p&gt;
+
+&lt;p&gt;这个问题我前后花了不少时间，因为是一直在研究motion的官方文档，所以进展很慢，还有个原因就是不能上googe…我的vpn在家用没问题，一到公司就不行，感觉应该是dns的问题，但是设置了就是不对，奇葩。后来还是借助于ggncr才找到了&lt;a href=&quot;https://forum.openwrt.org/viewtopic.php?id=56786&quot;&gt;这里&lt;/a&gt;，参考zloop的Makefile即可实现对ffmpeg的支持。&lt;/p&gt;
+
+&lt;p&gt;直接替换掉package/feeds/packages/motion/Makefile，然后进入make menuconfig就可以勾选带ffmpeg的motion了。打开Makefile查看下内容，其实变化并不大，仅仅添加了一些编译选项，可见source code原本就支持的。&lt;/p&gt;
+
+&lt;p&gt;编译没有错误，但是会发现没有生成sysupgrade.bin，原因前面已经提到了，那就是libffmpeg太大，最终会使bin档超过8M的限制，所以LZMA就不会生成它。我们可以先不勾选motion-ffmpeg和libffmpeg，生成一个小的系统，先下载进去，然后再勾选motion-ffmpeg后make一次，虽然不会生成最终的sysupgrade.bin，但是可以在bin/ramips/packages/packages/下面找到单独的libffmpeg和motion-ffmpeg安装文件，我们通过U盘单独安装它们即可。&lt;/p&gt;
+
+&lt;h3 id=&quot;libffmpeg&quot;&gt;添加libffmpeg&lt;/h3&gt;
+
+&lt;p&gt;openwrt使用opkg来管理包系统，在联网的情况下，可以直接通过opkg来在线安装一些工具，非常的方便。我们这里则是使用opkg来安装本地文件。&lt;/p&gt;
+
+&lt;p&gt;把motion-ffmpeg和libffmpeg的包复制到U盘，然后插入开发板。我们首先需要让opkg添加一个到U盘的安装目标，编辑/etc/opkg.conf，在里面添加一个dest&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dest usb /mnt/sda4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后进入U盘，先执行libffmpeg的安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;opkg install -d usb libffmpeg-full_*.ipk
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;会出现2个错误：其一是提示在/usr/lib/opkg/info/下面缺少ffmpeg.xxxx文件；其二是提示无法创建一些链接。&lt;/p&gt;
+
+&lt;p&gt;进入/usr/lib/opkg/info/可以发现确实没有，但是在U盘下面的./usr/lib/opkg/info/下面会发现所有的文件都在，于是果断全部copy到系统目录下面，再次安装就不会提示这个错误了。这应该算是一个opkg的小bug，-d指定目录后还是失效了。&lt;/p&gt;
+
+&lt;p&gt;对于无法创建连接的问题，也应该是-d的bug。进入U盘下面的./usr/lib，发现所有的文件都在，只不过没有创建link，也懒得link了，直接手动改个名字，把版本的后两位安装错误的提示全部去掉即可。&lt;/p&gt;
+
+&lt;p&gt;这样，libffmpeg就安装完成了。&lt;/p&gt;
+
+&lt;p&gt;motion-ffmpeg由于比较小，可以直接用：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;opkg install motion*.ipk
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;安装到系统里面去。&lt;/p&gt;
+
+&lt;p&gt;安装完成后，还需要设置一些环境变量，让shell能够找到我们在U盘中的位置，编辑/etc/profile，添加&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export LD_LIBRARY_PATH=&quot;/mnt/sda4/usr/lib:/mnt/sda4/lib&quot;
+export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/mnt/sda4/usr/bin:/mnt/	sda4/usr/sbin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后执行：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;source /etc/profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;来更新环境变量。&lt;br /&gt;
+至此，motion和ffmpeg就全部就绪。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;最后的效果&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;最后的效果不是很理想&lt;/strong&gt;。原因在于开发板性能不足，无法承载过大的压力。别的不谈，但就一个ffmpeg编码640x480就扛不住了，会直接把内存爆掉，不管设置多少帧率都不行。。所以只能用320x240，小的可怜，而且帧率也就十几的样子。&lt;/p&gt;
+
+&lt;p&gt;除却性能不谈，功能上面，现在可以达到的功能：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;在线视频http的实时查看；&lt;/li&gt;
+  &lt;li&gt;异常检查时候email报警(这个暂时没做，但是问题不大)；&lt;/li&gt;
+  &lt;li&gt;异常时候图片截图；&lt;/li&gt;
+  &lt;li&gt;异常时通过ffmpeg编码视频存储；&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;下一个目标是视频在网盘的存储。&lt;/strong&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 17 Jul 2015 00:00:00 +0800</pubDate>
+        <link>http://ash-liu.github.io/2015/07/17/openwrt-motion.html</link>
+        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/17/openwrt-motion.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>openwrt玩转摄像头——网页显示视频</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;起因&lt;/h3&gt;
+
+&lt;p&gt;最近逛众筹网站比较多，发现好多摄像头系列的玩意，刚好我们一个老板他们公司也是做智能摄像头这一块的，所以就动起了玩一玩摄像头的心思。感觉只要不是玩得太深入，都没有太大的难度，拼合组装已有的开源项目就可以实现许多好玩的功能。说玩就玩，初步的目标是实现以下功能：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;在线查看摄像头的视频；&lt;/li&gt;
+  &lt;li&gt;保存视频到本地(U盘)；&lt;/li&gt;
+  &lt;li&gt;保存视频到类似百度云等网盘；&lt;/li&gt;
+  &lt;li&gt;入侵检查并email或者短信报警；&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;其实市面上常见的智能摄像头，也就只有这些功能，由于我的板子没有audio的硬件，就算了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;摄像头的选择&lt;/h3&gt;
+
+&lt;p&gt;市面上的摄像头千千万万，可选的也非常多，为了方便linux的驱动，最好是使用UVC输出的，具体的品类可以参考&lt;a href=&quot;http://www.ideasonboard.org/uvc/#devices&quot;&gt;这里&lt;/a&gt;，我使用的是微软HD-3000，京东报价100多。到手之后直接连接电脑看了下效果，感觉一般般，稍微比MBA自带的30w像头好那么一点点。&lt;/p&gt;
+
+&lt;h3 id=&quot;mjpg-streamer&quot;&gt;mjpg-streamer的使用&lt;/h3&gt;
+
+&lt;p&gt;为了在web上面看到视频，最简单的就是使用mjpg-streamer了。mjpg-streamer是专门用来把jpg转化成mjpeg流输出的工具，它和ffmpeg有点像，有各种的输入输出组件，比如可以选择UVC-camera或者文件等作为输入，选择http或者文件作为流文件的输出。对于我们的需求来说：camera作为输入，经过转化，http作为输出。&lt;/p&gt;
+
+&lt;p&gt;真正的使用是很简单的，直接在LuCI–&amp;gt;Applications–&amp;gt;luci-app-mjpg-streamer勾选即可。为了kernel识别我们的摄像头，还需要勾选Kernel modules–&amp;gt;Video Support里面的video core以及下面的各种格式(我们主要用到的是uvc)。我看网友说要勾选Kernel modules–&amp;gt;usb Support下面的kmod-usb-storage-extras，我也直接勾选了，没有验证是否一定需要。&lt;/p&gt;
+
+&lt;p&gt;下载固件到开发板，进入web管理页面，在服务下面就可以找到mjpg-streamer，点开启服务。进入8080端口，就会发现视频已经出来了，虽然就一个光秃秃的视频。如果想web页面功能更加丰富，可以把mjpg-streamer source code下面的www文件夹拷贝到ow下面的/www/webcam，或者简单的做法是在menuconfig的时候勾选包含完整的www目录。&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 15 Jul 2015 00:00:00 +0800</pubDate>
+        <link>http://ash-liu.github.io/2015/07/15/ow-cam-web-vedio.html</link>
+        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/15/ow-cam-web-vedio.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>暴力破解密码</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://7xk84a.com1.z0.glb.clouddn.com/baolipojie.jpg&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;目标：老婆公司的OA系统&lt;br /&gt;
+动机：无。。。我跟老婆说她们OA不靠谱，别人想进去分分钟就可以进去，里面各种敏感信息全部都可以得到，她不信，非要我破给她看，于是就有了下面的尝试。最后的结果并没有拿到超级管理员的密码，原因是太费时间，放弃了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;初步试探&lt;/h3&gt;
+
+&lt;p&gt;首先看登陆的url名称：xxx.php3，看来是php框架实现的，页面上有用户和密码两个输入框和登陆按钮。随意输入一个xxx和随意密码，发现提示用户名不存在，然后再次输入admin和随意密码，发现提示密码错误。。恩，蛮实诚的小伙。然后测试连续多次登陆错误，发现服务器没有任何保护措施——请随意登陆。那这还不简单嘛，直接暴力破解妥妥的。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;使用的工具&lt;/h3&gt;
+
+&lt;p&gt;刚开始试了几个，不知道是设置问题还是啥的，反正都不正常，最后整了个&lt;a href=&quot;http://7xk84a.com1.z0.glb.clouddn.com/网站后台猜解.zip&quot;&gt;这个&lt;/a&gt;，总算是可以正常工作了。光这个还不行，还得搞字典，百度随便一查，茫茫多的字典可以下载。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;小试牛刀&lt;/h3&gt;
+
+&lt;p&gt;用户名其实已经知道了，那就是admin，设置好字典就可以开始跑。但是这个软件做的着实不咋地，打开稍微大点的文件就会死掉。。只能用很小的字典来试，结果不是很理想，试了几个小字典都没有搞定，一开大字典就卡死，很烦人。好吧，后面就直接放弃了，我感觉整个稍微好点的tool(能够开N个线程一起跑的那种)，配合大一点的字典，应该是几小时内的事情。&lt;/p&gt;
+
+&lt;p&gt;后来又随意破解了几个其他用户名，比如名字的拼音缩写等，有几个非常快，秒出的密码：123…但是，已经没啥意思了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;安全的反思&lt;/h3&gt;
+
+&lt;p&gt;不知道他们有没有it人员，也不知道他们的后台有没有log，如果有的话，看到今天茫茫多个login eror会不会有所觉察，这些不是我关心的，我在想是：如果自己来做这个login，可以采取哪些安全措施呢？&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;首先可以想到的当然是限制同一ip的登录错误次数了，这个至少可以挡住大部分好事之徒，但是对于高手可以伪装ip的就束手无策了；&lt;/li&gt;
+  &lt;li&gt;添加登录验证码。大部分的网站好像都是1，2并用的，现在要想暴力，必须要识别验证码，难度提升了一个维度，当然只要想破，还是有方法，只是成本比较高；&lt;/li&gt;
+  &lt;li&gt;传说中的2步验证。这个就狠了，配合密码+短信验证码等的方式，直接无解。&lt;/li&gt;
+  &lt;li&gt;借助于第三方验证，使用OAuth，做成微信或者微博账号授权登录。这个也基本无解。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;安全和方便可能是没法并得的，足够的安全往往意味这繁琐的步骤，比如验证码，2步验证或OAuth等，都需要比直接登录更多的操作，但是作为一个公司核心的OA而言，这绝对是必须的。&lt;/p&gt;
+</description>
+        <pubDate>Wed, 15 Jul 2015 00:00:00 +0800</pubDate>
+        <link>http://ash-liu.github.io/2015/07/15/baoli-pojie-mima.html</link>
+        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/15/baoli-pojie-mima.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>编译openwrt现MD5错误</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://7xk84a.com1.z0.glb.clouddn.com/md5.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;编译openwrt一般会出现下载错误，从而导致编译中断，所以当出现这个问题的时候，我第一时间是感觉下载的有问题。于是手动下载了一个放到dl里面，再次执行make，结果还是显示md5验证错误。奇怪了，怎么会下载的文档不对呢？仔细看了make信息，发现它定位url使用的文档名字是&lt;strong&gt;cambozola-latest.tar.gz&lt;/strong&gt;，看到名字我就感觉问题应该出在这里了。&lt;/p&gt;
+
+&lt;p&gt;一般都习惯用latest来表示最新的，这样不仅方便人，也很方便脚本来获取最新的版本，因为都是同样的名字，无需判断是否最新。但是用在类似openwrt的构建系统里面，我感觉是不合适的，对于不同的package理应对到具体的版本号，这样才能够保证make过程的畅通。而且看看其他package的url定位都是具体的版本号，可见这应该是一个小bug(也或许是这个package没有提供具体版本号的下载，所以如果我们自己也做package的话，就一定得引以为戒。)。&lt;/p&gt;
+
+&lt;p&gt;解决办法。首先得到cambozola-latest.tar.gz这个文档，然后使用md5命令获取到md5值。进入./feeds/packages/multimedia/mjpg-streamer下面，修改Makefile中关于cambozola的md5值，然后再次编译即可通过。&lt;/p&gt;
+</description>
+        <pubDate>Tue, 14 Jul 2015 00:00:00 +0800</pubDate>
+        <link>http://ash-liu.github.io/2015/07/14/openwrt-md5-error.html</link>
+        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/14/openwrt-md5-error.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>整个七牛做图床</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://7xk84a.com1.z0.glb.clouddn.com/qiniu.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;存储一些静态文件(比如图片，简单文件)的需求还是有的，至从我的linode关停后，就在考虑整个能够外链的服务。首相想到的当然是又拍了，但是看了下发现都是需要资费的，没有入门免费级别的产品。于是又找到了七牛，正好满足我的需求：基本级别免费，有可用api或者工具来上传数据。&lt;/p&gt;
+
+&lt;p&gt;七牛的注册还是要花点时间的，因为要验证身份，所以需要上传身份证然后等个一两天，验证通过了才算正式成为了入门级别用户。不验证身份也是可以的，只不过没有办法使用api或者工具而已，只能通过web的方式管理数据，这样就太麻烦了。&lt;/p&gt;
+
+&lt;p&gt;首先在七牛的后台建立一个项目，专门用来存储需要外链的临时文件，然后再到开发者平台–账号–密钥找到账号的AK和SK，其实这里就可以看到，所有的项目都是公用同一个key的，略显寒掺。有了项目的名称，和这两个key，我们就可以使用命令行工具或者api来操作数据了。&lt;/p&gt;
+
+&lt;p&gt;我使用的是命令行工具qrsync，在文档中心–资源下载–工具下面就可以找到它(再次吐槽下七牛混乱的连接逻辑，反正我是经常要找东西找不到，上次找到了东西下次又得找半天)。使用也很简单，参照它的说明建立一个json，然后执行就ok了。由于外链的前缀是相同的，所以只要文件名就可以得到最终的url。&lt;/p&gt;
+
+&lt;p&gt;最后，为了方便脚本的调用，我在alfred里面设置了一个workflow，直接快捷键来调用qrsync更新，这里就补细说了。从最用效果来看，一般般吧，因为没法直接copy到最终的url，总感觉不完美，或许使用api+python可以实现的更加优雅点，懒得整了。&lt;/p&gt;
+</description>
+        <pubDate>Mon, 13 Jul 2015 00:00:00 +0800</pubDate>
+        <link>http://ash-liu.github.io/2015/07/13/zheng-ge-qi-niu-zuo-tu-chuang.html</link>
+        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/13/zheng-ge-qi-niu-zuo-tu-chuang.html</guid>
         
         
       </item>
