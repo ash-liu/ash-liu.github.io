@@ -3,11 +3,64 @@
   <channel>
     <title>Ash的blog</title>
     <description></description>
-    <link>http://ash-liu.github.io/</link>
-    <atom:link href="http://ash-liu.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Jul 2015 17:30:24 +0800</pubDate>
-    <lastBuildDate>Thu, 30 Jul 2015 17:30:24 +0800</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <link>http://ashliu.com/</link>
+    <atom:link href="http://ashliu.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 16 Sep 2018 21:56:49 +0800</pubDate>
+    <lastBuildDate>Sun, 16 Sep 2018 21:56:49 +0800</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Blog的新生</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://7xk84a.com1.z0.glb.clouddn.com/%E5%93%A5%E6%96%AF%E6%8B%89123321.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;意外的惊喜&lt;/h3&gt;
+&lt;p&gt;已经忘记是哪个网站了，弹出了域名注册的广告，一阵恍惚之后想看一看&lt;strong&gt;ashliu.com&lt;/strong&gt;还在不在，查询以后果不其然，已经被注册，whois信息没有联系方式，于是更加恍惚。之后想到我godaddy里面好像注册过一个域名，已经忘记是什么了，依稀是与ash相关的，隐约打算做博客。又是一阵操作，毕竟上个gmail找到用户名和密码也不是件容易的事，终于登陆上了一看，居然就是&lt;strong&gt;ashliu.com&lt;/strong&gt;，顿时无语！咒骂自己健忘之余，甚至有点小小惊喜，仿佛这白捡的一般。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;三重门&lt;/h3&gt;
+&lt;p&gt;今天迷糊是有原因的。因为昨晚kindle看书看太晚了，为什么会kindle看书呢，是因为在自己的百度网盘里面找到了N个G的电子书，不想浪费，希望有生之年可以多消灭一些。为什么会无聊去翻百度盘呢，是因为某个淘宝卖片的更新了最新的机器学习和视觉的教程，盘空间不够了。所以仔细想来，是机器视觉导致了本域名重现。人就是这样，当我忙一整天博客，不亦乐乎的时候，已经忘记了初衷其实是要学视觉。&lt;/p&gt;
+
+&lt;p&gt;是的，重温的是韩寒的&lt;三重门&gt;，现在的我的感觉，已经没有当初看三重门时候的兴奋感了，觉得韩寒写的有些矫情，故意的段子和讽刺，是廉价的兴奋，现在老了，所以兴奋感低了。但是仍然记得初中那时候，化学老师那张兴奋的孩子样的脸，向我们强烈推荐三重门，不读枉为人！&lt;/三重门&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;空间在哪里&lt;/h3&gt;
+&lt;p&gt;linode那种高富帅实在用不起，所以选择了&lt;a href=&quot;https://www.vultr.com&quot;&gt;vultr&lt;/a&gt;，听说之前还有2.5刀每月的，现在的这个配置只支持ipv6，那就不考虑了。往上一档是3.5刀一个月，20G硬盘512M内存，好像也够用。我的需求也很简单，无非挂个博客，然后必要的时候跑几个测试的server，也就是能有个python+node的环境就好。&lt;/p&gt;
+
+&lt;p&gt;也是好久不玩vps，不知道现在的墙这么神通。以前都是dns污染，或者直接封ip地址，现在是TCP阻断：ping的通，但是tcp连不上。没有办法，美帝的机房试了2个都不行，只能投靠Tokyo。以后得经常备份才行，说不定哪天日本的ip也不通就尴尬了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;关于图&lt;/h3&gt;
+&lt;p&gt;我已经不记得什么时候看过夏达的&lt;哥斯拉不说话&gt;了，但里面最后一句话依然清晰，看我之前写的博客让我想起来了这句话。漫画和夏达本人都太萌了，放图实在不合适，所以选了一张Q版哥斯拉。&lt;/哥斯拉不说话&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 16 Sep 2018 20:33:00 +0800</pubDate>
+        <link>http://ashliu.com/%E8%AE%B0%E4%BA%8B/2018/09/16/blog%E7%9A%84%E6%96%B0%E7%94%9F.html</link>
+        <guid isPermaLink="true">http://ashliu.com/%E8%AE%B0%E4%BA%8B/2018/09/16/blog%E7%9A%84%E6%96%B0%E7%94%9F.html</guid>
+        
+        
+        <category>记事</category>
+        
+      </item>
+    
+      <item>
+        <title>读安下心来</title>
+        <description>&lt;p&gt;这是一本讲专注于当下的书。如同作者在简介里面所说：你只需要做好一件事，那就是安下心来，专注于当下，而不是被未知的迷茫所笼罩，那么我们期待的生活会自然而然的发生。&lt;/p&gt;
+
+&lt;p&gt;安下心来的六颗定心丸：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;不予确定，保持敏感；保持空瓶心态，学习心态。&lt;/li&gt;
+  &lt;li&gt;看到他人和自己的可能；有敬畏之心。&lt;/li&gt;
+  &lt;li&gt;获得自己的答案；独立思考，不要人云亦云。&lt;/li&gt;
+  &lt;li&gt;相信自身非凡的力量；自信，自信，自信，重要事情说三遍。&lt;/li&gt;
+  &lt;li&gt;在爱中生根发芽；对事物充满兴趣和爱心。&lt;/li&gt;
+  &lt;li&gt;这就是我的生活；放下包袱，立地成佛。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Thu, 06 Aug 2015 00:00:00 +0800</pubDate>
+        <link>http://ashliu.com/2015/08/06/%E5%AE%89%E4%B8%8B%E5%BF%83%E6%9D%A5.html</link>
+        <guid isPermaLink="true">http://ashliu.com/2015/08/06/%E5%AE%89%E4%B8%8B%E5%BF%83%E6%9D%A5.html</guid>
+        
+        <category>读书</category>
+        
+        
+      </item>
     
       <item>
         <title>Welcome to Jekyll!</title>
@@ -26,9 +79,9 @@
 &lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
 
 </description>
-        <pubDate>Thu, 30 Jul 2015 19:23:40 +0800</pubDate>
-        <link>http://ash-liu.github.io/jekyll/update/2015/07/30/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://ash-liu.github.io/jekyll/update/2015/07/30/welcome-to-jekyll.html</guid>
+        <pubDate>Thu, 30 Jul 2015 11:23:40 +0000</pubDate>
+        <link>http://ashliu.com/jekyll/update/2015/07/30/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://ashliu.com/jekyll/update/2015/07/30/welcome-to-jekyll.html</guid>
         
         
         <category>jekyll</category>
@@ -41,10 +94,16 @@
         <title>寻找新的基地</title>
         <description>&lt;p&gt;前几天登陆&lt;a href=&quot;http://scriptogr.am&quot;&gt;scriptogr.am&lt;/a&gt;的时候就看到了他们的重要公告：&lt;strong&gt;停止服务！&lt;/strong&gt;，看了下blog的说明，没有明确的原因，截止日期是8-15。额，看来只有重新找窝了。&lt;/p&gt;
 
+&lt;p&gt;在网上找了一圈，没有发现特别好的blog服务(主要是支持markdown编辑的)，于是重回jekyll的怀抱，主机使用github的page服务。没有使用octopress，我当时觉得octopress相比于jekyll要难理解许多，所以选择也懒得去整，直接jekyll即方便又好理解。&lt;/p&gt;
+
+&lt;p&gt;主要的工作是把老旧的md文件迁移过来，之前使用scriptogr.am的服务，它对header的格式要求与page有那么一点点差异，使用脚本好像比较难处理，所以全部手动修改。&lt;/p&gt;
+
 </description>
         <pubDate>Thu, 30 Jul 2015 00:00:00 +0800</pubDate>
-        <link>http://ash-liu.github.io/2015/07/30/new-blog-service.html</link>
-        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/30/new-blog-service.html</guid>
+        <link>http://ashliu.com/2015/07/30/new-blog-service.html</link>
+        <guid isPermaLink="true">http://ashliu.com/2015/07/30/new-blog-service.html</guid>
+        
+        <category>技术</category>
         
         
       </item>
@@ -58,8 +117,8 @@
 &lt;p&gt;作者的论点应该可以泛化为：我们对压力(或者内心的恐惧)的态度以及压力对我们进步的作用。我们不应该逃避压力，直面它们才能使我们的内心更加强大，相比之无法承受这些压力和恐惧的人，我们就相当于进化了一步，所以更具竞争力。&lt;/p&gt;
 </description>
         <pubDate>Wed, 29 Jul 2015 00:00:00 +0800</pubDate>
-        <link>http://ash-liu.github.io/2015/07/29/fancuiruoxing.html</link>
-        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/29/fancuiruoxing.html</guid>
+        <link>http://ashliu.com/2015/07/29/fancuiruoxing.html</link>
+        <guid isPermaLink="true">http://ashliu.com/2015/07/29/fancuiruoxing.html</guid>
         
         
       </item>
@@ -108,8 +167,8 @@
 
 </description>
         <pubDate>Tue, 28 Jul 2015 00:00:00 +0800</pubDate>
-        <link>http://ash-liu.github.io/2015/07/28/read-chuangxinzhedejiongjing.html</link>
-        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/28/read-chuangxinzhedejiongjing.html</guid>
+        <link>http://ashliu.com/2015/07/28/read-chuangxinzhedejiongjing.html</link>
+        <guid isPermaLink="true">http://ashliu.com/2015/07/28/read-chuangxinzhedejiongjing.html</guid>
         
         
       </item>
@@ -137,8 +196,8 @@
 &lt;p&gt;所谓的五部就是：首先需要有质疑一切的态度，然后着手调查看似不可能的各种可能性，基于调查的成果展开头脑风暴发散思维，然后建立约束条件聚合合理的思维，最后持续的评估迭代已有方案来寻求更细小的突破。&lt;/p&gt;
 </description>
         <pubDate>Tue, 28 Jul 2015 00:00:00 +0800</pubDate>
-        <link>http://ash-liu.github.io/2015/07/28/read-books-100-days.html</link>
-        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/28/read-books-100-days.html</guid>
+        <link>http://ashliu.com/2015/07/28/read-books-100-days.html</link>
+        <guid isPermaLink="true">http://ashliu.com/2015/07/28/read-books-100-days.html</guid>
         
         
       </item>
@@ -275,8 +334,8 @@ export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/mnt/sda4/usr/bin:/mnt/	sda4/usr/sbin
 
 </description>
         <pubDate>Fri, 17 Jul 2015 00:00:00 +0800</pubDate>
-        <link>http://ash-liu.github.io/2015/07/17/openwrt-motion.html</link>
-        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/17/openwrt-motion.html</guid>
+        <link>http://ashliu.com/2015/07/17/openwrt-motion.html</link>
+        <guid isPermaLink="true">http://ashliu.com/2015/07/17/openwrt-motion.html</guid>
         
         
       </item>
@@ -310,8 +369,8 @@ export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/mnt/sda4/usr/bin:/mnt/	sda4/usr/sbin
 
 </description>
         <pubDate>Wed, 15 Jul 2015 00:00:00 +0800</pubDate>
-        <link>http://ash-liu.github.io/2015/07/15/ow-cam-web-vedio.html</link>
-        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/15/ow-cam-web-vedio.html</guid>
+        <link>http://ashliu.com/2015/07/15/ow-cam-web-vedio.html</link>
+        <guid isPermaLink="true">http://ashliu.com/2015/07/15/ow-cam-web-vedio.html</guid>
         
         
       </item>
@@ -351,46 +410,8 @@ export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/mnt/sda4/usr/bin:/mnt/	sda4/usr/sbin
 &lt;p&gt;安全和方便可能是没法并得的，足够的安全往往意味这繁琐的步骤，比如验证码，2步验证或OAuth等，都需要比直接登录更多的操作，但是作为一个公司核心的OA而言，这绝对是必须的。&lt;/p&gt;
 </description>
         <pubDate>Wed, 15 Jul 2015 00:00:00 +0800</pubDate>
-        <link>http://ash-liu.github.io/2015/07/15/baoli-pojie-mima.html</link>
-        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/15/baoli-pojie-mima.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>编译openwrt现MD5错误</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://7xk84a.com1.z0.glb.clouddn.com/md5.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;编译openwrt一般会出现下载错误，从而导致编译中断，所以当出现这个问题的时候，我第一时间是感觉下载的有问题。于是手动下载了一个放到dl里面，再次执行make，结果还是显示md5验证错误。奇怪了，怎么会下载的文档不对呢？仔细看了make信息，发现它定位url使用的文档名字是&lt;strong&gt;cambozola-latest.tar.gz&lt;/strong&gt;，看到名字我就感觉问题应该出在这里了。&lt;/p&gt;
-
-&lt;p&gt;一般都习惯用latest来表示最新的，这样不仅方便人，也很方便脚本来获取最新的版本，因为都是同样的名字，无需判断是否最新。但是用在类似openwrt的构建系统里面，我感觉是不合适的，对于不同的package理应对到具体的版本号，这样才能够保证make过程的畅通。而且看看其他package的url定位都是具体的版本号，可见这应该是一个小bug(也或许是这个package没有提供具体版本号的下载，所以如果我们自己也做package的话，就一定得引以为戒。)。&lt;/p&gt;
-
-&lt;p&gt;解决办法。首先得到cambozola-latest.tar.gz这个文档，然后使用md5命令获取到md5值。进入./feeds/packages/multimedia/mjpg-streamer下面，修改Makefile中关于cambozola的md5值，然后再次编译即可通过。&lt;/p&gt;
-</description>
-        <pubDate>Tue, 14 Jul 2015 00:00:00 +0800</pubDate>
-        <link>http://ash-liu.github.io/2015/07/14/openwrt-md5-error.html</link>
-        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/14/openwrt-md5-error.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>整个七牛做图床</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://7xk84a.com1.z0.glb.clouddn.com/qiniu.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;存储一些静态文件(比如图片，简单文件)的需求还是有的，至从我的linode关停后，就在考虑整个能够外链的服务。首相想到的当然是又拍了，但是看了下发现都是需要资费的，没有入门免费级别的产品。于是又找到了七牛，正好满足我的需求：基本级别免费，有可用api或者工具来上传数据。&lt;/p&gt;
-
-&lt;p&gt;七牛的注册还是要花点时间的，因为要验证身份，所以需要上传身份证然后等个一两天，验证通过了才算正式成为了入门级别用户。不验证身份也是可以的，只不过没有办法使用api或者工具而已，只能通过web的方式管理数据，这样就太麻烦了。&lt;/p&gt;
-
-&lt;p&gt;首先在七牛的后台建立一个项目，专门用来存储需要外链的临时文件，然后再到开发者平台–账号–密钥找到账号的AK和SK，其实这里就可以看到，所有的项目都是公用同一个key的，略显寒掺。有了项目的名称，和这两个key，我们就可以使用命令行工具或者api来操作数据了。&lt;/p&gt;
-
-&lt;p&gt;我使用的是命令行工具qrsync，在文档中心–资源下载–工具下面就可以找到它(再次吐槽下七牛混乱的连接逻辑，反正我是经常要找东西找不到，上次找到了东西下次又得找半天)。使用也很简单，参照它的说明建立一个json，然后执行就ok了。由于外链的前缀是相同的，所以只要文件名就可以得到最终的url。&lt;/p&gt;
-
-&lt;p&gt;最后，为了方便脚本的调用，我在alfred里面设置了一个workflow，直接快捷键来调用qrsync更新，这里就补细说了。从最用效果来看，一般般吧，因为没法直接copy到最终的url，总感觉不完美，或许使用api+python可以实现的更加优雅点，懒得整了。&lt;/p&gt;
-</description>
-        <pubDate>Mon, 13 Jul 2015 00:00:00 +0800</pubDate>
-        <link>http://ash-liu.github.io/2015/07/13/zheng-ge-qi-niu-zuo-tu-chuang.html</link>
-        <guid isPermaLink="true">http://ash-liu.github.io/2015/07/13/zheng-ge-qi-niu-zuo-tu-chuang.html</guid>
+        <link>http://ashliu.com/2015/07/15/baoli-pojie-mima.html</link>
+        <guid isPermaLink="true">http://ashliu.com/2015/07/15/baoli-pojie-mima.html</guid>
         
         
       </item>
