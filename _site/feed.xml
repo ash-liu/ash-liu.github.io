@@ -5,9 +5,73 @@
     <description></description>
     <link>http://ashliu.com/</link>
     <atom:link href="http://ashliu.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Sep 2018 21:56:49 +0800</pubDate>
-    <lastBuildDate>Sun, 16 Sep 2018 21:56:49 +0800</lastBuildDate>
+    <pubDate>Mon, 17 Sep 2018 23:50:05 +0800</pubDate>
+    <lastBuildDate>Mon, 17 Sep 2018 23:50:05 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>抽空架个SS</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://7xk84a.com1.z0.glb.clouddn.com/2018-09-17-321.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;目标&lt;/h3&gt;
+&lt;p&gt;本空间的一大职能就是提供必要时候的CQ功能，所以在ss成了貌似唯一的选择。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;过程&lt;/h3&gt;
+&lt;p&gt;过程好像真没有什么好说的，现在实在是太方便了，都是一键配置的。我参考了&lt;a href=&quot;http://blog.51cto.com/13756513/2118075&quot;&gt;这里&lt;/a&gt;，他讲的更加详细，连怎么申请vps都说了，目标明确，就是奔着CQ去的。&lt;/p&gt;
+
+&lt;p&gt;为了以备万一，这里也简单记录下：&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;1. 下载一键配置脚本：&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/flyzy2005/ss-fly
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;2. 执行安装命令：&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;ss-fly/ss-fly.sh -i 123456 1024
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其中123456是你想要的密码，1024是ss服务器端的默认端口，最好改成其他的值，比如4024之类的。就搞定了，等待安装完毕即可。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;3. 相关操作&lt;/h4&gt;
+&lt;p&gt;非常基本的操作，不过多说了.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;修改配置文件：vim /etc/shadowsocks.json  
+查看SS的log: cat /var/log/shadowsocks.log  
+停止ss服务：ssserver -c /etc/shadowsocks.json -d stop  
+启动ss服务：ssserver -c /etc/shadowsocks.json -d start  
+重启ss服务：ssserver -c /etc/shadowsocks.json -d restart   
+卸载：ss-fly/ss-fly.sh -uninstall   
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;bbr&quot;&gt;4. 开启BBR&lt;/h4&gt;
+
+&lt;p&gt;BBR是Google开放的一个TCP加速算法，&lt;a href=&quot;https://baijiahao.baidu.com/s?id=1583566587466620295&amp;amp;wfr=spider&amp;amp;for=pc&quot;&gt;这里&lt;/a&gt;有一个简短的介绍。为SS开启BBR后，可以限制提升速度(&lt;strong&gt;听说而已&lt;/strong&gt;)。打开的方式也是一键完成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ss-fly/ss-fly.sh -bbr
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;执行命令以后，可能会升级内核版本，然后提示重启系统。重启完成以后，可以通过以下的命令来判断BBR是否开启正常：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;命令：sysctl net.ipv4.tcp_available_congestion_control
+正确返回：net.ipv4.tcp_available_congestion_control = bbr cubic reno
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以上，服务端就完成了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;客户端设置&lt;/h3&gt;
+
+&lt;p&gt;客户端的设置相对就简单多了，下载地址参考&lt;a href=&quot;https://www.flyzy2005.win/fan-qiang/shadowsocks/ss-clients-download/&quot;&gt;这里&lt;/a&gt;;
+打开客户端以后，按照server端填写的信息填写即可。其中PAC模式就是需要的时候走代理，国内网站不走代理，这个选择是通过PAC文件来决定，一般通过GFWList更新即可。&lt;/p&gt;
+</description>
+        <pubDate>Mon, 17 Sep 2018 20:33:00 +0800</pubDate>
+        <link>http://ashliu.com/%E6%8A%80%E6%9C%AF/2018/09/17/%E6%8A%BD%E7%A9%BA%E6%9E%B6%E4%B8%AASS.html</link>
+        <guid isPermaLink="true">http://ashliu.com/%E6%8A%80%E6%9C%AF/2018/09/17/%E6%8A%BD%E7%A9%BA%E6%9E%B6%E4%B8%AASS.html</guid>
+        
+        
+        <category>技术</category>
+        
+      </item>
     
       <item>
         <title>Blog的新生</title>
@@ -371,47 +435,6 @@ export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/mnt/sda4/usr/bin:/mnt/	sda4/usr/sbin
         <pubDate>Wed, 15 Jul 2015 00:00:00 +0800</pubDate>
         <link>http://ashliu.com/2015/07/15/ow-cam-web-vedio.html</link>
         <guid isPermaLink="true">http://ashliu.com/2015/07/15/ow-cam-web-vedio.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>暴力破解密码</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://7xk84a.com1.z0.glb.clouddn.com/baolipojie.jpg&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;目标：老婆公司的OA系统&lt;br /&gt;
-动机：无。。。我跟老婆说她们OA不靠谱，别人想进去分分钟就可以进去，里面各种敏感信息全部都可以得到，她不信，非要我破给她看，于是就有了下面的尝试。最后的结果并没有拿到超级管理员的密码，原因是太费时间，放弃了。&lt;/p&gt;
-
-&lt;h3 id=&quot;section&quot;&gt;初步试探&lt;/h3&gt;
-
-&lt;p&gt;首先看登陆的url名称：xxx.php3，看来是php框架实现的，页面上有用户和密码两个输入框和登陆按钮。随意输入一个xxx和随意密码，发现提示用户名不存在，然后再次输入admin和随意密码，发现提示密码错误。。恩，蛮实诚的小伙。然后测试连续多次登陆错误，发现服务器没有任何保护措施——请随意登陆。那这还不简单嘛，直接暴力破解妥妥的。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;使用的工具&lt;/h3&gt;
-
-&lt;p&gt;刚开始试了几个，不知道是设置问题还是啥的，反正都不正常，最后整了个&lt;a href=&quot;http://7xk84a.com1.z0.glb.clouddn.com/网站后台猜解.zip&quot;&gt;这个&lt;/a&gt;，总算是可以正常工作了。光这个还不行，还得搞字典，百度随便一查，茫茫多的字典可以下载。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-2&quot;&gt;小试牛刀&lt;/h3&gt;
-
-&lt;p&gt;用户名其实已经知道了，那就是admin，设置好字典就可以开始跑。但是这个软件做的着实不咋地，打开稍微大点的文件就会死掉。。只能用很小的字典来试，结果不是很理想，试了几个小字典都没有搞定，一开大字典就卡死，很烦人。好吧，后面就直接放弃了，我感觉整个稍微好点的tool(能够开N个线程一起跑的那种)，配合大一点的字典，应该是几小时内的事情。&lt;/p&gt;
-
-&lt;p&gt;后来又随意破解了几个其他用户名，比如名字的拼音缩写等，有几个非常快，秒出的密码：123…但是，已经没啥意思了。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-3&quot;&gt;安全的反思&lt;/h3&gt;
-
-&lt;p&gt;不知道他们有没有it人员，也不知道他们的后台有没有log，如果有的话，看到今天茫茫多个login eror会不会有所觉察，这些不是我关心的，我在想是：如果自己来做这个login，可以采取哪些安全措施呢？&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;首先可以想到的当然是限制同一ip的登录错误次数了，这个至少可以挡住大部分好事之徒，但是对于高手可以伪装ip的就束手无策了；&lt;/li&gt;
-  &lt;li&gt;添加登录验证码。大部分的网站好像都是1，2并用的，现在要想暴力，必须要识别验证码，难度提升了一个维度，当然只要想破，还是有方法，只是成本比较高；&lt;/li&gt;
-  &lt;li&gt;传说中的2步验证。这个就狠了，配合密码+短信验证码等的方式，直接无解。&lt;/li&gt;
-  &lt;li&gt;借助于第三方验证，使用OAuth，做成微信或者微博账号授权登录。这个也基本无解。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;安全和方便可能是没法并得的，足够的安全往往意味这繁琐的步骤，比如验证码，2步验证或OAuth等，都需要比直接登录更多的操作，但是作为一个公司核心的OA而言，这绝对是必须的。&lt;/p&gt;
-</description>
-        <pubDate>Wed, 15 Jul 2015 00:00:00 +0800</pubDate>
-        <link>http://ashliu.com/2015/07/15/baoli-pojie-mima.html</link>
-        <guid isPermaLink="true">http://ashliu.com/2015/07/15/baoli-pojie-mima.html</guid>
         
         
       </item>
