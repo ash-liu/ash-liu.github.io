@@ -4,7 +4,7 @@ date: 2015-07-13
 title: 整个七牛做图床
 --- 
 
-![image](http://7xk84a.com1.z0.glb.clouddn.com/qiniu.png)
+![image](http://pic.ashliu.com/qiniu.png)
 
 存储一些静态文件(比如图片，简单文件)的需求还是有的，至从我的linode关停后，就在考虑整个能够外链的服务。首相想到的当然是又拍了，但是看了下发现都是需要资费的，没有入门免费级别的产品。于是又找到了七牛，正好满足我的需求：基本级别免费，有可用api或者工具来上传数据。
 

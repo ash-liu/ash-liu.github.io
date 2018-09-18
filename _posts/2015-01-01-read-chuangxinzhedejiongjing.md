@@ -4,7 +4,7 @@ date: 2015-07-28
 title: 读创新者的窘境
 --- 
 
-![image](http://7xk84a.com1.z0.glb.clouddn.com/chuangxinzhejiongjin.png)
+![image](http://pic.ashliu.com/chuangxinzhejiongjin.png)
 
 ### 听说
 这部神作很早就有耳闻，一直没有拜读，直到最近读过了罗辑思维的登高四书，里面有一本专门讲颠覆式创新的，几乎全篇都有提创新者的窘境，于是果断的入手了一本。通篇读下来，眼界大开，同时感觉后悔读了神马登高四书——被提前剧透了结论嘛，并且登高这本明显就是照搬的创新者。。

@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Ash的blog</title>
+  <title>重振图床</title>
   <meta name="description" content="">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://ashliu.com/page10/">
+  <link rel="canonical" href="http://ashliu.com/%E6%8A%80%E6%9C%AF/2018/09/18/%E9%87%8D%E6%8C%AF%E5%9B%BE%E5%BA%8A.html">
   <link rel="alternate" type="application/rss+xml" title="Ash的blog" href="http://ashliu.com/feed.xml" />
 </head>
 
@@ -72,40 +72,51 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">重振图床</h1>
+    <p class="post-meta">Sep 18, 2018</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Nov 2, 2012</span>
+  <article class="post-content">
+    <p><img src="http://pic.ashliu.com/20180917.jpg" alt="" /></p>
 
-        <h2>
-          <a class="post-link" href="/2012/11/02/%E5%BB%BA%E7%AB%8Bblog%E7%9A%84%E6%96%B9%E6%A1%88.html">建立blog的方案</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 2, 2012</span>
+<p>在查看”热心读者“来信的时候，无意间看到了七牛发给我的邮件，原来空间外链的域名会30天一换，这会导致我之前的图片地址失效。登陆其后台看了下，虽然可以绑定固定的域名，但是要IPC实名验证。</p>
 
-        <h2>
-          <a class="post-link" href="/2012/11/02/%E5%90%AC%E6%AD%8C.html">听歌</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>好吧，只能自己动手了，大体思路是在Nginx下挂一个代理，用一个不变的域名映射到随他怎么变的七牛地址即可。</p>
 
+<h3 id="section">1. 整一个固定的域名</h3>
 
-  
-    
-        <a href="/page9">上一页</a>
-    
+<p>不用想了，肯定是<strong>pic.ashliu.com</strong>。为了让它可以指向vps的ip，需要在域名管理后台添加一个CNAME，协议是pic，然后指向@即可。设置以后，ping下<strong>pic.ashliu.com</strong>，查看dns是否生效。</p>
 
-    
-  
+<h3 id="nginx">2. Nginx配置</h3>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<p>首先，在<code>/etc/nginx/sites-available/</code>目录下新建一个名为pic的文件，作为<strong>pic.ashliu.com</strong>主机的配置文件，里面的内容很简单：</p>
+
+<pre><code>server {
+    listen 80;
+    server_name pic.ashliu.com;
+    return 301 http://7xk84a.com1.z0.glb.clouddn.com$uri;
+}
+</code></pre>
+
+<p>监听80端口，监听的主机是<strong>pic.ashliu.com</strong>，执行重定向操作，其中$uri代表URI路径，也就是地址除域名外的其他部分。</p>
+
+<p>然后，在<code>/etc/nginx/sites-enabled/</code>建立一个软连接，指向上面那个pic文件：</p>
+
+<pre><code>sudo ln -s ../sites-available/pic pic
+</code></pre>
+
+<p>最后，reload配置即可：</p>
+
+<pre><code>sudo nginx -s reload
+</code></pre>
+
+<h2 id="section-1">关于图</h2>
+<p>图为今天晚饭后回公司路上所拍，风景不错，黄昏尤甚。</p>
+
+  </article>
 
 </div>
 

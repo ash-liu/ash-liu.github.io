@@ -3,7 +3,7 @@ layout: post
 date: 2015-07-14  
 title: 编译openwrt现MD5错误
 --- 
-![image](http://7xk84a.com1.z0.glb.clouddn.com/md5.png)
+![image](http://pic.ashliu.com/md5.png)
 
 
 
