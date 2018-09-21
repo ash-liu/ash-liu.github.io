@@ -12,4 +12,17 @@ layout: default
     {{ content }}
   </article>
 
+  <div id="vcomments"></div>
+  <script>
+      new Valine({
+          el: '#vcomments',
+          appId: '3WoOx4KUTKADqRr1kjcxYvP2-gzGzoHsz',
+          appKey: '0EKmmcKCr3829RtHmw2fvcq7',
+          notify:false, 
+          verify:false, 
+          avatar:'mm', 
+          placeholder: '随意聊聊.'
+      })
+  </script>
+  
 </div>
