@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>之乎者也</title>
+  <title>评论系统</title>
   <meta name="description" content="">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://ashliu.com/2013/10/14/%E7%9F%A5%E4%B9%8E%E8%80%85%E4%B9%9F.html">
+  <link rel="canonical" href="http://ashliu.com/%E6%8A%80%E6%9C%AF/2018/09/21/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F.html">
   <link rel="alternate" type="application/rss+xml" title="Ash的blog" href="http://ashliu.com/feed.xml" />
 
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -78,20 +78,24 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">之乎者也</h1>
-    <p class="post-meta">Oct 14, 2013</p>
+    <h1 class="post-title">评论系统</h1>
+    <p class="post-meta">Sep 21, 2018</p>
   </header>
 
   <article class="post-content">
-    <p><img src="http://www.ashliu.com:8080/uploads/45223zhihu.jpg" alt="" /></p>
+    <p><img src="http://pic.ashliu.com/20180921001.png" alt="" /></p>
 
-<p>昨天周末在家尝到了知乎的甜头，今天继续混迹在里面，越发觉得是个好地方，可休闲，可学习，怎么之前就没觉得呢。</p>
+<p>我是想过要加评论系统的，转念又觉得反正没人看，有无没关系。今天一哥在说，然后看到另一个独角戏博主的说法：评论是用来自己用的，自我点评就挺好。嗯，这个想法不错。</p>
 
-<p>看是在看，但仍然是零散的在看，还得想法子来归纳总结之。想用保存到evernote或者pocket，但是感觉有点奇怪，还是直接用知乎的保存算了，每周整理下。还是要成系统才行，不然看了也是白看。</p>
+<p>之前jekyll是用的<a href="https://disqus.com">Disqus</a>，很不幸被墙了。今天搜索了一番，哀鸿遍野，大部分国内的都停止了服务，再或者就是需要付费的，只有2个和我意。其中一个是通过github的issue系统来实现评论，缺点在于评论时必须OAuth登陆github的账户系统，我觉得麻烦就选择了另一个。</p>
 
-<p>今天由于比较闲，还信誓旦旦的整个common lisp的教程准备学学，听说会lisp的才是高手啊，所以特别适合我这种装13人士，咳咳。但是，但是还是忍住了，感觉这样下去又是和lua一样的节奏，只会最最基础的部分。那与其这样还不如用这些时间去精通当下已经熟悉的某个技能，艺多不养家，贪吃不消化。</p>
+<p>Valine的主页在<a href="https://valine.js.org">这里</a>，原理是把评论推到了<a href="https://leancloud.cn/">LeanCloud</a>，想想这个应用场景还是挺搭配LC的server less目标的。</p>
 
-<p>OK，做题去了。</p>
+<p>具体实现没什么好说的，直接按照Valine主页的说明配置即可。</p>
+
+<h3 id="section">每日一图</h3>
+
+<p>儿子的一幅画，我觉得充满童趣，主题是<秋天的毛栗子>.</秋天的毛栗子></p>
 
   </article>
 
