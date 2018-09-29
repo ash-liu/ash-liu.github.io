@@ -5,9 +5,35 @@
     <description></description>
     <link>http://ashliu.com/</link>
     <atom:link href="http://ashliu.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 21 Sep 2018 17:35:49 +0800</pubDate>
-    <lastBuildDate>Fri, 21 Sep 2018 17:35:49 +0800</lastBuildDate>
+    <pubDate>Sat, 29 Sep 2018 17:42:43 +0800</pubDate>
+    <lastBuildDate>Sat, 29 Sep 2018 17:42:43 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>贴图</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/2008092904.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最近有点忙，很忙的那种。。如图中所示，之前的图没法回来了，无语。&lt;/p&gt;
+
+&lt;p&gt;下午抽点时间做了个静态的图床，不折腾了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;图一: &lt;回家路口&gt;&lt;/回家路口&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/2008092903.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;图二: &lt;早餐奶&gt;&lt;/早餐奶&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/2008092902.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;图三: &lt;地面&gt;&lt;/地面&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/2008092901.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 22 Sep 2018 17:34:00 +0800</pubDate>
+        <link>http://ashliu.com/%E7%94%9F%E6%B4%BB/2018/09/22/%E5%9B%BE.html</link>
+        <guid isPermaLink="true">http://ashliu.com/%E7%94%9F%E6%B4%BB/2018/09/22/%E5%9B%BE.html</guid>
+        
+        
+        <category>生活</category>
+        
+      </item>
     
       <item>
         <title>评论系统</title>
@@ -322,21 +348,6 @@ echo {query}
         <guid isPermaLink="true">http://ashliu.com/2015/07/30/new-blog-service.html</guid>
         
         <category>技术</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>反脆弱——从不确定性中获益</title>
-        <description>&lt;p&gt;作者已经在前作黑天鹅里面讲述了一个真理，那就是无法避免的黑天鹅现象，那么既然这种不确定性是无法避免的，我们应该采取什么样的心态来面对它们呢？作者说我们不要做被风一吹就熄灭的蜡烛，而是要成为越吹越旺盛的炉火，我们不仅应该在不确定性中存活下来，而且还应该借助不确定性变得更加强大。&lt;/p&gt;
-
-&lt;p&gt;生命体的不断进化就是反脆弱性的一种体现，在面对挑战的时候积极的改变者总能够更好的延续下去，并且具备更强大的竞争力，反观那些脆弱者会被挑战所淘汰。所以也可以这么说：杀不死我的必使我强大，而杀死我的却能够让别人强大。通过这个结论就可以推出另一个重要的推论：&lt;strong&gt;&lt;em&gt;要想更具竞争力，那么就不应该惧怕不确定性，反而应该积极的拥抱它&lt;/em&gt;&lt;/strong&gt;。后面还有好长的目录，但看起来是对上面推论的正反论证，我只抓中心，所以就直接略过。&lt;/p&gt;
-
-&lt;p&gt;作者的论点应该可以泛化为：我们对压力(或者内心的恐惧)的态度以及压力对我们进步的作用。我们不应该逃避压力，直面它们才能使我们的内心更加强大，相比之无法承受这些压力和恐惧的人，我们就相当于进化了一步，所以更具竞争力。&lt;/p&gt;
-</description>
-        <pubDate>Wed, 29 Jul 2015 00:00:00 +0800</pubDate>
-        <link>http://ashliu.com/2015/07/29/fancuiruoxing.html</link>
-        <guid isPermaLink="true">http://ashliu.com/2015/07/29/fancuiruoxing.html</guid>
         
         
       </item>
