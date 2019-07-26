@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>记录jekyll环境搭建</title>
+  <meta name="description" content="本以为写完了早点休息，结果被jekyll的环境折腾了好久。之前一直是用笔记本build好以后push到github，然后在ashliu.com拉下来，今天笔记本没带，果然又被坑了。">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/22/%E8%AE%B0%E5%BD%95%E4%B8%8Bjeykll%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html">
+  <link rel="alternate" type="application/rss+xml" title="Ash的blog" href="http://ashliu.com/feed.xml" />
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ash的blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">记录jekyll环境搭建</h1>
+    <p class="post-meta">Jan 22, 2019</p>
+  </header>
+
+  <article class="post-content">
+    <p>本以为写完了早点休息，结果被jekyll的环境折腾了好久。之前一直是用笔记本build好以后push到github，然后在ashliu.com拉下来，今天笔记本没带，果然又被坑了。</p>
+
+<h3 id="gemjeykllbundler">1. 安装gem，jeykll和bundler</h3>
+<p>这一步骤可以部分参考<a href="https://jekyllrb.com/docs/installation/ubuntu/">这里</a>。</p>
+
+<pre><code>sudo apt-get install ruby-full build-essential zlib1g-dev
+echo '# Install Ruby Gems to ~/gems' &gt;&gt; ~/.zshrc
+echo 'export GEM_HOME="$HOME/gems"' &gt;&gt; ~/.zshrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' &gt;&gt; ~/.zshrc
+source ~/.zshrc
+gem install bundler
+</code></pre>
+
+<p>我用的是zsh，所以是zshrc。因为我之前用的是jekyll2版本做的blog，所以这里不能直接用gem来install jekyll，这样会安装为3.0版本，编译不过。改成如下的安装命令：</p>
+
+<pre><code>gem install jekyll --version=2.0
+gem install maruku
+</code></pre>
+
+<p>通过制定版本来安装，另一个gem包是依赖包，一并安装好。</p>
+
+<h3 id="section">2. 修改目录权限</h3>
+<p>由于/var/www目录下是root权限，之前也懒得改，现在不用sudo会有权限问题，用sudo找不到jekyll命令。所以简单的方式就是把www目录下的ash-liu.github.io目录修改为ash用户所有，命令如下：</p>
+
+<pre><code>sudo chown  -R ash ./ash-liu.github.io
+</code></pre>
+
+<p>需要注意的是-R递归调用，所有的子目录和文件全部修改。</p>
+
+<h3 id="build">3. build</h3>
+<p>最后进入ash-liu.github.io目录，直接build即可：</p>
+
+<pre><code>jekyll build
+</code></pre>
+
+<p>完工。后期有时间，要写个自动编译的钩子脚本，Github上有更新，就拉下来编译更新。</p>
+
+  </article>
+
+  <div id="vcomments"></div>
+  <script>
+      new Valine({
+          el: '#vcomments',
+          appId: '3WoOx4KUTKADqRr1kjcxYvP2-gzGzoHsz',
+          appKey: '0EKmmcKCr3829RtHmw2fvcq7',
+          notify:false, 
+          verify:false, 
+          avatar:'mm',
+          placeholder: '随意聊聊.'
+      })
+  </script>
+  
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ash的blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Ash的blog</li>
+          <li><a href="mailto:578410647@qq.com">578410647@qq.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-3">
+        <p class="text"></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+
+</html>
