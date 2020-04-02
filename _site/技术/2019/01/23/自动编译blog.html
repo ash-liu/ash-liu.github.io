@@ -1,90 +1,52 @@
 <!DOCTYPE html>
-<html>
-
-  <head>
+<html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>自动编译blog | ash的blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="自动编译blog" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="网速才是第一生产力，vultr真是太慢了，敲命令敲的头疼。" />
+<meta property="og:description" content="网速才是第一生产力，vultr真是太慢了，敲命令敲的头疼。" />
+<link rel="canonical" href="ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/23/%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91blog.html" />
+<meta property="og:url" content="ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/23/%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91blog.html" />
+<meta property="og:site_name" content="ash的blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-23T00:34:00+08:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"自动编译blog","dateModified":"2019-01-23T00:34:00+08:00","datePublished":"2019-01-23T00:34:00+08:00","url":"ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/23/%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91blog.html","mainEntityOfPage":{"@type":"WebPage","@id":"ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/23/%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91blog.html"},"description":"网速才是第一生产力，vultr真是太慢了，敲命令敲的头疼。","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="ashliu.com/feed.xml" title="ash的blog" /></head>
+<body><header class="site-header" role="banner">
 
-  <title>自动编译blog</title>
-  <meta name="description" content="网速才是第一生产力，vultr真是太慢了，敲命令敲的头疼。">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">ash的blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
 
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/23/%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91blog.html">
-  <link rel="alternate" type="application/rss+xml" title="Ash的blog" href="http://ashliu.com/feed.xml" />
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-</head>
-
-
-  <body>
-
-    <header class="site-header">
-
-  <div class="wrapper">
-
-    <a class="site-title" href="/">Ash的blog</a>
-
-    <nav class="site-nav">
-      <a href="#" class="menu-icon">
-        <svg viewBox="0 0 18 15">
-          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
-          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
-          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
-        </svg>
-      </a>
-
-      <div class="trigger">
-        
-          
-          <a class="page-link" href="/about/">About</a>
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      </div>
-    </nav>
-
-  </div>
-
+        <div class="trigger">
+            <a class="page-link" href="/about">About</a>
+        </div>
+      </nav></div>
 </header>
-
-
-    <div class="page-content">
+<main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="post">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title">自动编译blog</h1>
-    <p class="post-meta">Jan 23, 2019</p>
+    <h1 class="post-title p-name" itemprop="name headline">自动编译blog</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-01-23T00:34:00+08:00" itemprop="datePublished">Jan 23, 2019
+      </time></p>
   </header>
 
-  <article class="post-content">
+  <div class="post-content e-content" itemprop="articleBody">
     <p>网速才是第一生产力，vultr真是太慢了，敲命令敲的头疼。</p>
 
 <p>白天蹲坑的时候看了下通用的实现方式，发现github自身就带webhook，配置一下就可以直接在repo更新时候触发钩子访问，非常方便。</p>
@@ -92,71 +54,58 @@
 <h3 id="uwsgi">uwsgi</h3>
 <p>本来应该用Nginx+uwsgi+flask实现多app的部署，实在是懒得去敲命令行了，放弃。直接制定端口算了，反正github也支持。</p>
 
-<h3 id="flask">Flask实现</h3>
+<h3 id="flask实现">Flask实现</h3>
 <p>最近看了一个<a href="https://github.com/flask-restful/flask-restful">flask_restful</a>的包，可以非常容易的构建api应用。当然了，其实直接flask就够了，得到github来的代码，触发动作即可。代码很挫，在<a href="https://github.com/ash-liu/api">这里</a>。</p>
 
-<h3 id="supervisor">关于supervisor</h3>
+<h3 id="关于supervisor">关于supervisor</h3>
 <p>在我心目中神级的存在，居然不支持python3…解决方案是把系统的python和pip链接到python2和pip2，安装好以后，在把软件连切换回python3，最后还要修改supervisor的代码。</p>
 
-<pre><code>sudo ln -s /usr/bin/python2.7 /usr/bin/python
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ln -s /usr/bin/python2.7 /usr/bin/python
 sudo ln -s /usr/bin/pip2 /usr/bin/pip
 sudo vim /usr/local/bin/supervisorctl	#把里面首行的解释器指向python2
 sudo vim /usr/local/bin/supervisord		#把里面首行的解释器指向python2
 sudo vim /usr/local/bin/echo_supervisord_conf  #把里面首行的解释器指向python2
-</code></pre>
+</code></pre></div></div>
 
 <p>然后添加一个Flask的监控conf文件，网上抄的。好像依然有点问题，无法通过/etc/init的脚本来控制，懒得看了。</p>
 
-<h3 id="ss">ss蹦了</h3>
+<h3 id="ss蹦了">ss蹦了</h3>
 <p>想都不用想，肯定和安装了python3相关，和supervisor类似，把其解释器制定为python2即可，</p>
 
-<pre><code>whereis ssserver	# 找到命令的位置
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>whereis ssserver	# 找到命令的位置
 sudo vim /usr/local/bin/ssserver  #把里面首行的解释器指向python2
-</code></pre>
+</code></pre></div></div>
 
 <p>ps.改nginx配置，把blog也改蹦了，也懒得看了，把做的修改全部去掉后恢复。。</p>
 
-  </article>
-
-  <div id="vcomments"></div>
-  <script>
-      new Valine({
-          el: '#vcomments',
-          appId: '3WoOx4KUTKADqRr1kjcxYvP2-gzGzoHsz',
-          appKey: '0EKmmcKCr3829RtHmw2fvcq7',
-          notify:false, 
-          verify:false, 
-          avatar:'mm',
-          placeholder: '随意聊聊.'
-      })
-  </script>
-  
-</div>
+  </div><a class="u-url" href="/%E6%8A%80%E6%9C%AF/2019/01/23/%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91blog.html" hidden></a>
+</article>
 
       </div>
-    </div>
-
-    <footer class="site-footer">
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Ash的blog</h2>
+    <h2 class="footer-heading">ash的blog</h2>
 
     <div class="footer-col-wrapper">
-      <div class="footer-col  footer-col-1">
+      <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li>Ash的blog</li>
-          <li><a href="mailto:578410647@qq.com">578410647@qq.com</a></li>
-        </ul>
+          <li class="p-name">ash的blog</li><li><a class="u-email" href="mailto:ww7472242@gmail.com">ww7472242@gmail.com</a></li></ul>
       </div>
-      <div class="footer-col  footer-col-3">
-        <p class="text"></p>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ash-liu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ash-liu</span></a></li><li><a href="https://www.twitter.com/ash_liu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">ash_liu</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>知行合一.</p>
       </div>
     </div>
+
   </div>
+
 </footer>
-
-
-  </body>
+</body>
 
 </html>

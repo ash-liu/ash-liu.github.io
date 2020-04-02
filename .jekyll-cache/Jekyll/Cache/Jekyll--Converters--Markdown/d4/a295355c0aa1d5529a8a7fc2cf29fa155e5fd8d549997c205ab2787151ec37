@@ -1,0 +1,6 @@
+I"�<p><img src="http://www.ashliu.com:8080/uploads/41905reactor.jpg" alt="" /></p>
+
+<p>上图就是一个reactor的UML，其中Event Demultiplexer可以是select，epool或者是kqueue等的封装，Reactor通过Event Demultiplexer来实现多路IO，并且把对应的Event Handle与IO事件连接起来，从而实现特定的IO事件后(比如可读，可写等)，执行预先设定好的操作。</p>
+
+<p>好吧，其实我也不懂，所以我建立一个Areactor项目，通过copy redis的实现来学习reactor模式。该项目已经放到了<a href="https://github.com/ash-liu/Areactor">github</a>上面，里面基本都是redis的代码，我只是练习如何组装它们而已。</p>
+:ET

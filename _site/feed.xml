@@ -1,25 +1,100 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Ash的blog</title>
-    <description></description>
-    <link>http://ashliu.com/</link>
-    <atom:link href="http://ashliu.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 26 Jul 2019 07:18:33 +0000</pubDate>
-    <lastBuildDate>Fri, 26 Jul 2019 07:18:33 +0000</lastBuildDate>
-    <generator>Jekyll v2.0.0</generator>
-    
-      <item>
-        <title>WSL下ESP32开发环境的搭建</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://docs.espressif.com/projects/esp-idf/zh_CN/latest/_images/esp32-devkitc-functional-overview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="ashliu.com/feed.xml" rel="self" type="application/atom+xml" /><link href="ashliu.com/" rel="alternate" type="text/html" /><updated>2020-03-31T16:30:42+08:00</updated><id>ashliu.com/feed.xml</id><title type="html">ash的blog</title><subtitle>知行合一.</subtitle><entry><title type="html">西瓜书</title><link href="ashliu.com/%E6%8A%80%E6%9C%AF/2019/08/05/%E5%9C%A8%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E8%A5%BF%E7%93%9C.html" rel="alternate" type="text/html" title="西瓜书" /><published>2019-08-05T20:00:00+08:00</published><updated>2019-08-05T20:00:00+08:00</updated><id>ashliu.com/%E6%8A%80%E6%9C%AF/2019/08/05/%E5%9C%A8%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E8%A5%BF%E7%93%9C</id><content type="html" xml:base="ashliu.com/%E6%8A%80%E6%9C%AF/2019/08/05/%E5%9C%A8%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E8%A5%BF%E7%93%9C.html">&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/2019080601.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最近不忙，利用上班时间学习下周老师的西瓜书，买了很久了，没怎么看过。机器学习的书对我来说还是有点难，看到满篇的公式就想放弃。前段时间看李航的&lt;统计学习方法&gt;也是类似的感受，硬着头皮看了2章，后面才逐渐适应，看了一大半，到后来的公式理解不了，就没看了。&lt;/统计学习方法&gt;&lt;/p&gt;
+
+&lt;p&gt;包括&lt;统计学习方法&gt;，和我所想的内容都不太一样，毕竟我是从各种深度学习的demo中跑来学理论的，但所讲内容多不是DNN，都是一般的机器学习知识和方法，特别是统计学习，是机器学习的一大类别，根本就不包括机器学习。但是这并不能抹灭它的价值，套用机器学习的术语，读这样的书其实是学一种泛化的能力，如果仅仅跟着某篇文章或者是视频教程，那仅仅只学会了样本本身而已，过拟合了。&lt;/统计学习方法&gt;&lt;/p&gt;
+
+&lt;p&gt;夏天也渐渐要凉快了，也改到学习读书的时节了。定个小目标，今年把西瓜书+统计学习方法读完吧。&lt;/p&gt;
+
+&lt;p&gt;Jetbot的demo：跟随物品。小朋友玩的很开心~&lt;/p&gt;
+
+&lt;iframe src=&quot;http://pic.ashliu.com/2019080602.mp4&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">命令行设置wifi</title><link href="ashliu.com/%E6%8A%80%E6%9C%AF/2019/08/02/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AEwifi.html" rel="alternate" type="text/html" title="命令行设置wifi" /><published>2019-08-02T15:00:00+08:00</published><updated>2019-08-02T15:00:00+08:00</updated><id>ashliu.com/%E6%8A%80%E6%9C%AF/2019/08/02/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AEwifi</id><content type="html" xml:base="ashliu.com/%E6%8A%80%E6%9C%AF/2019/08/02/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AEwifi.html">&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/2019080203.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Jetson上面为了方便，使用了一个wifi usb dongle，在家里面连接网络的时候，是通过桌面操作完成的，今天在公司没有HDMI显示器，只能通过命令行的方式完成，记录下过程。&lt;/p&gt;
+
+&lt;h4 id=&quot;iw方式用不了&quot;&gt;iw方式用不了&lt;/h4&gt;
+
+&lt;p&gt;linux下的wifi管理，网上都是iw命令，但是对于我使用的dongle，iw命令无法使用，会提示如下error：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;command failed: No such device (-19)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;使用lsusb，得到dongle的信息如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Bus 002 Device 002: ID 0bda:0411 Realtek Semiconductor Corp.
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 003: ID 0bda:8179 Realtek Semiconductor Corp. RTL8188EUS 802.11n Wireless Network Adapter
+Bus 001 Device 002: ID 0bda:5411 Realtek Semiconductor Corp.
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;并不是wlan0没有up，因为使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;iwlist scan&lt;/code&gt; 是可以扫描到ap信息的，说明底层设备已经跑起来了。上网搜了下，很多树莓派的用户有这个问题，但是没有好的解决方案。&lt;/p&gt;
+
+&lt;h4 id=&quot;nmcli工具&quot;&gt;nmcli工具&lt;/h4&gt;
+
+&lt;p&gt;ubuntu的桌面环境使用Network Manager来管理网络，就是这个界面：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/2019080201.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;其对应一个命令行的管理工具：nmcli，网络相关的操作都可以通过它来完成，比如我们需要的wifi连接。&lt;/p&gt;
+
+&lt;p&gt;显示wifi列表：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nmcli dev wifi list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;连接到wifi：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nmcli con add con-name hongtuotech3 ifname wlan0 type wifi ssid hongtuotech3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;搞定。&lt;/p&gt;
+
+&lt;p&gt;更加详细的操作说明，可以参考红帽的&lt;a href=&quot;https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/networking_guide/sec-using_the_networkmanager_command_line_tool_nmcli&quot;&gt;一篇文章&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;PS, 如今红帽也卖身了。&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Amazon FreeRTOS开发环境搭建(Esp32)问题记录</title><link href="ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/29/Amazon-FreeRTOS%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html" rel="alternate" type="text/html" title="Amazon FreeRTOS开发环境搭建(Esp32)问题记录" /><published>2019-07-29T20:00:00+08:00</published><updated>2019-07-29T20:00:00+08:00</updated><id>ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/29/Amazon%20FreeRTOS%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83</id><content type="html" xml:base="ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/29/Amazon-FreeRTOS%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html">&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/2019072901.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;前面在WSL里面整好了esp32的开发环境，可惜并不能直接同于amazon freetros的开发，还需要几个小改动。&lt;/p&gt;
+
+&lt;p&gt;首先，需要参考amazon的文档，从这里开始：&lt;a href=&quot;https://docs.aws.amazon.com/zh_cn/freertos/latest/userguide/what-is-amazon-freertos.html&quot;&gt;什么是Amazon FreeRTOS&lt;/a&gt;，介绍了Amazon FreeRTOS的整体构成，功能等等。&lt;/p&gt;
+
+&lt;p&gt;编译环境相关的文档从&lt;a href=&quot;https://docs.aws.amazon.com/zh_cn/freertos/latest/userguide/freertos-getting-started.html&quot;&gt;这里&lt;/a&gt;开始，个人觉得这一部分的文档稍微有点混乱，原因是有的设置是amazon FreeRTOS相关的，有的设置是vendor相关的，容易混淆。而我碰到的几个问题其实文档都有写，但是看的时候死活就是没发现。&lt;/p&gt;
+
+&lt;h3 id=&quot;问题1gcc报错-werrorsizeof-pointer-memaccess&quot;&gt;问题1：gcc报错：-Werror=sizeof-pointer-memaccess&lt;/h3&gt;
+
+&lt;p&gt;原因就是按照esp32官方的方式安装的xtensa gcc版本太高了所致。按照&lt;a href=&quot;https://docs.aws.amazon.com/zh_cn/freertos/latest/userguide/getting_started_espressif.html&quot;&gt;文档&lt;/a&gt;的描述，是因为amazon freetros使用的ESP-IDF版本比较低，无法与最新的xtensa gcc兼容所致，需要在&lt;a href=&quot;https://docs.espressif.com/projects/esp-idf/en/v3.1.3/get-started-cmake/linux-setup.html&quot;&gt;这里&lt;/a&gt;下载低版本的gcc;&lt;/p&gt;
+
+&lt;h3 id=&quot;问题2各种component没有包含&quot;&gt;问题2：各种Component没有包含&lt;/h3&gt;
+
+&lt;p&gt;因为按照官方教程设置了IDF_PATH的缘故，amazon freertos里面设置了这个环境变量，会冲突。去掉即可：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;unset IDF_PATH
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;问题3下载无法使用&quot;&gt;问题3：下载无法使用&lt;/h3&gt;
+
+&lt;p&gt;与前面官方环境类似，把esptool.py改成esptool.exe即可；&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">图片链接更简单</title><link href="ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/26/%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5%E6%9B%B4%E7%AE%80%E5%8D%95.html" rel="alternate" type="text/html" title="图片链接更简单" /><published>2019-07-26T23:00:00+08:00</published><updated>2019-07-26T23:00:00+08:00</updated><id>ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/26/%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5%E6%9B%B4%E7%AE%80%E5%8D%95</id><content type="html" xml:base="ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/26/%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5%E6%9B%B4%E7%AE%80%E5%8D%95.html">&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/2019072602.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;关于博客使用的图床，我是用nginx挂了一个site，指向特定的文件夹，然后在本地通过scp把图片复制到该文件夹。现在想想，这样其实挺笨的！&lt;/p&gt;
+
+&lt;p&gt;为什么不把图片也放在git里面呢？服务器脚本被gtihub的webhook触发后，更新git时候就直接把图片也拉下来，然后把nginx的sita直接指向这个git内的文件夹即可。很简单的一个改动，不仅方便了操作，连图片都版本管理了。&lt;/p&gt;
+
+&lt;p&gt;今天听吴伯凡的得到，记住了一个词： ** iteration ** ,词典翻译如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;the process of doing something again and again, usually to improve it, or one of the times you do it.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;认知的过程就是一个迭代的过程，先有一个基础的，不完善的方法和模型，然后不断的打磨，agin and agin。嗯，blog的技术实现也要迭代~&lt;/p&gt;
+
+&lt;p&gt;PS. 题图是最近爱喝的酸梅汤.&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">WSL下ESP32开发环境的搭建</title><link href="ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/26/WSL%E4%B8%8B%E6%90%AD%E5%BB%BAESP32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html" rel="alternate" type="text/html" title="WSL下ESP32开发环境的搭建" /><published>2019-07-26T22:00:00+08:00</published><updated>2019-07-26T22:00:00+08:00</updated><id>ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/26/WSL%E4%B8%8B%E6%90%AD%E5%BB%BAESP32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83</id><content type="html" xml:base="ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/26/WSL%E4%B8%8B%E6%90%AD%E5%BB%BAESP32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html">&lt;p&gt;&lt;img src=&quot;https://docs.espressif.com/projects/esp-idf/zh_CN/latest/_images/esp32-devkitc-functional-overview.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;感觉应该挺简单一事儿，结果历经坎坷，最终终于完成。&lt;/p&gt;
 
-&lt;h3 id=&quot;win&quot;&gt;为什么不用WIN环境&lt;/h3&gt;
+&lt;h3 id=&quot;为什么不用win环境&quot;&gt;为什么不用WIN环境&lt;/h3&gt;
 
 &lt;p&gt;不是不想，是有问题，特别是结合powershell一起用的情况下，各种坑，选择放弃。&lt;/p&gt;
 
-&lt;h3 id=&quot;wsl&quot;&gt;为什么是WSL而不是虚拟机&lt;/h3&gt;
+&lt;h3 id=&quot;为什么是wsl而不是虚拟机&quot;&gt;为什么是WSL而不是虚拟机&lt;/h3&gt;
 
 &lt;p&gt;WIN环境下的linux开发，强烈推荐WSL，配合powershell(也即cmder)一起，有一种winux(win + linux)的感觉，如鱼得水，非常棒。当然了WSL也有它的问题，比如IO效率差，不支持桌面环境，不支持显卡设备之类的，甚至一般的设备驱动都可能存在问题。但是绝大部分的情况下，我是强烈推荐使用的。同一个shell下面，既可执行linux的命令，也可以运行window命令，既可以访问linux目录，也可以访问window目录，融为了一体，这不是简单一个虚拟机共享文件夹可以有的体验。&lt;/p&gt;
 
@@ -27,30 +102,30 @@
 
 &lt;p&gt;再说一说WSL2。WSL官方实锤是已经放弃了，马上要出WSL2：基于Hyper-V虚拟技术实现的linux子系统。说白了，就是挂一个虚拟机，然后上面跑完整的linux环境。虽然叫WSL2，但是与WSL是完全不一样的东西。那么问题来了，我vmware，virtualBox用的好好的，为啥要用你巨硬的Hyper-V？所以，我的态度是观望。&lt;/p&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;安装步骤&lt;/h3&gt;
+&lt;h3 id=&quot;安装步骤&quot;&gt;安装步骤&lt;/h3&gt;
 
 &lt;p&gt;安装步骤官方有详细的说明，请参考&lt;a href=&quot;https://docs.espressif.com/projects/esp-idf/zh_CN/latest/get-started/index.html#get-started-step-by-step&quot;&gt;这里&lt;/a&gt;，按照里面linux环境的方式来配置即可，这里主要是记录下碰到的问题。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;问题&lt;/h3&gt;
+&lt;h3 id=&quot;问题&quot;&gt;问题&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;解决一时爽，一直解决一直爽？不存在的，都是在浪费时间。
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;解决一时爽，一直解决一直爽？不存在的，都是在浪费时间。
                                     
                                     ———— Ash
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;cmderwslvim&quot;&gt;1、 cmder下进入wsl后vim的方向键失灵&lt;/h4&gt;
+&lt;h4 id=&quot;1-cmder下进入wsl后vim的方向键失灵&quot;&gt;1、 cmder下进入wsl后vim的方向键失灵&lt;/h4&gt;
 
 &lt;p&gt;看问题的标题就感觉很纠结，但是google发现还是非常多人说这个问题，看来cmder+wsl是很多人的菜。解决问题的方法是修改cmder的配置如下图：&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/20190726135558.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;看红框所示的意思是：启动bash的时候，带入&lt;code&gt;~ -cur_console:p5&lt;/code&gt;参数p5是解决问题的关键，其他人说用的什么p:n都不行。&lt;/p&gt;
+&lt;p&gt;看红框所示的意思是：启动bash的时候，带入&lt;code class=&quot;highlighter-rouge&quot;&gt;~ -cur_console:p5&lt;/code&gt;参数p5是解决问题的关键，其他人说用的什么p:n都不行。&lt;/p&gt;
 
-&lt;h4 id=&quot;idfpytermioserror-5-inputoutput-error&quot;&gt;2、idf.py无法使用串口，提示&lt;code&gt;termios.error: (5, &#39;Input/output error&#39;)&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;2idfpy无法使用串口提示termioserror-5-inputoutput-error&quot;&gt;2、idf.py无法使用串口，提示&lt;code class=&quot;highlighter-rouge&quot;&gt;termios.error: (5, 'Input/output error')&lt;/code&gt;&lt;/h4&gt;
 
 &lt;p&gt;使用idfdownload和monitor都会报这个错误，问题的原因是silicon lab的usb驱动有问题，这里说的是win环境的驱动。到pololu官网下载它的cp2102驱动，在&lt;a href=&quot;https://www.pololu.com/file/0J14/pololu-cp2102-windows-121204.zip&quot;&gt;这里&lt;/a&gt;，安装新驱动即可。&lt;/p&gt;
 
-&lt;h4 id=&quot;idfpy&quot;&gt;3、idf.py依然无法下载的问题&lt;/h4&gt;
+&lt;h4 id=&quot;3idfpy依然无法下载的问题&quot;&gt;3、idf.py依然无法下载的问题&lt;/h4&gt;
 
 &lt;p&gt;按照上面操作后，串口看起来是没问题的，包括monitor命令都可以正常运行。但是下载死活不行，我怀疑是wsl对串口的驱动依然存在某些问题。昨天就卡在了这里，毫无进展一度准备放弃，最后准备直接用window的GUI工具实现下载得了。&lt;/p&gt;
 
@@ -58,101 +133,73 @@
 
 &lt;p&gt;说干就干，实现其实非常简单了，把idf.py指向的下载命令，替换为esptool.exe：&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;    Run esptool to flash the entire project, from an argfile generated by the build system&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;flasher_args_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# action -&amp;gt; name of flasher args file generated by build system&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&amp;quot;bootloader-flash&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;flash_bootloader_args&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&amp;quot;partition_table-flash&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;flash_partition_table_args&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&amp;quot;app-flash&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;flash_app_args&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&amp;quot;flash&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;flash_project_args&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&amp;quot;encrypted-app-flash&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;flash_encrypted_app_args&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&amp;quot;encrypted-flash&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;flash_encrypted_project_args&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+    Run esptool to flash the entire project, from an argfile generated by the build system
+    &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;flasher_args_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# action -&amp;gt; name of flasher args file generated by build system
+&lt;/span&gt;        &lt;span class=&quot;s&quot;&gt;&quot;bootloader-flash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;flash_bootloader_args&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;partition_table-flash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;flash_partition_table_args&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;app-flash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;flash_app_args&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;flash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;flash_project_args&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;encrypted-app-flash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;flash_encrypted_app_args&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;encrypted-flash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;flash_encrypted_project_args&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}[&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 
-    &lt;span class=&quot;c&quot;&gt;# ash modify here&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;# Use windows env&amp;#39;s esptool.exe&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;esptool_args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_get_esptool_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ash modify here
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# Use windows env's esptool.exe
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;esptool_args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_get_esptool_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;esptool_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;IDF_PATH&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;components/esptool_py/esptool/esptool.exe&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;IDF_PATH&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;components/esptool_py/esptool/esptool.exe&quot;&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;esptool_args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;write_flash&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;@&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flasher_args_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;_run_tool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;esptool.py&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;esptool_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;build_dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;n&quot;&gt;esptool_args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;write_flash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;@&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flasher_args_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;_run_tool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;esptool.py&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;esptool_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;build_dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;其中，&lt;code&gt;_run_tool&lt;/code&gt;函数的第二个参数是执行的命令(subprocess.check_call的调用，所以是列表格式)，去掉第一个是因为其默认用的python解析器，而我们需要直接执行exe；&lt;/p&gt;
+&lt;p&gt;其中，&lt;code class=&quot;highlighter-rouge&quot;&gt;_run_tool&lt;/code&gt;函数的第二个参数是执行的命令(subprocess.check_call的调用，所以是列表格式)，去掉第一个是因为其默认用的python解析器，而我们需要直接执行exe；&lt;/p&gt;
 
-&lt;p&gt;这样就可以直接用idf.py实现载，传递的串口要注意是win下的：&lt;code&gt;COM3&lt;/code&gt; ， 而不是wsl下的：&lt;code&gt;/dev/ttyS3&lt;/code&gt;;&lt;/p&gt;
-
-</description>
-        <pubDate>Fri, 26 Jul 2019 22:00:00 +0000</pubDate>
-        <link>http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/26/WSL%E4%B8%8B%E6%90%AD%E5%BB%BAESP32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html</link>
-        <guid isPermaLink="true">http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/26/WSL%E4%B8%8B%E6%90%AD%E5%BB%BAESP32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html</guid>
-        
-        
-        <category>技术</category>
-        
-      </item>
-    
-      <item>
-        <title>win10多python环境切换</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/en/c/cd/Anaconda_Logo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;这样就可以直接用idf.py实现载，传递的串口要注意是win下的：&lt;code class=&quot;highlighter-rouge&quot;&gt;COM3&lt;/code&gt; ， 而不是wsl下的：&lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/ttyS3&lt;/code&gt;;&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">win10多python环境切换</title><link href="ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/25/WIN%E5%A4%9Apython%E7%8E%AF%E5%A2%83.html" rel="alternate" type="text/html" title="win10多python环境切换" /><published>2019-07-25T22:00:00+08:00</published><updated>2019-07-25T22:00:00+08:00</updated><id>ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/25/WIN%E5%A4%9Apython%E7%8E%AF%E5%A2%83</id><content type="html" xml:base="ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/25/WIN%E5%A4%9Apython%E7%8E%AF%E5%A2%83.html">&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/en/c/cd/Anaconda_Logo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;现在基本是python3走天下了，但偶尔有些例外，比如当前需要的esp32开发环境。其实乐鑫提供的&lt;a href=&quot;https://docs.espressif.com/projects/esp-idf/zh_CN/latest/get-started/windows-setup.html&quot;&gt;工具&lt;/a&gt;可以直接安装python2.7，但最好不要这么用，会造成环境的混乱，比如我的python3+pyqt环境可能就会出现问题。正确的方式是利用conda来管理所有的python版本。&lt;/p&gt;
 
-&lt;h3 id=&quot;py27&quot;&gt;1. 新建py27环境&lt;/h3&gt;
+&lt;h3 id=&quot;1-新建py27环境&quot;&gt;1. 新建py27环境&lt;/h3&gt;
 &lt;p&gt;打开anaconda，点击新建环境后选中python版本2.7，然后名字就叫py27。等待片刻，anaconda就帮忙建好了新的环境，接下来就是在命令行的操作。&lt;/p&gt;
 
 &lt;p&gt;在cmder命令行中，输入命令：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;conda info -e
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda info -e
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;会显示当前conda管理的环境列表，我的如下：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;base                  *  d:\Anaconda3
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;base                  *  d:\Anaconda3
 mk                       d:\Anaconda3\envs\mk
 py27                     d:\Anaconda3\envs\py27
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;表示本地有3个环境，当前使用的是base，其中py27是刚建立的python2.7环境。&lt;/p&gt;
 
-&lt;h3 id=&quot;py27-1&quot;&gt;2. 使用py27环境&lt;/h3&gt;
+&lt;h3 id=&quot;2-使用py27环境&quot;&gt;2. 使用py27环境&lt;/h3&gt;
 &lt;p&gt;conda提供了切换的脚本供我们在环境间切换，其命令是&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;activate py27
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;activate py27
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;active其实指向的是active.bat，可怜的是这个脚本只能在cmd下才生效，在powershell(也即cmder)环境下并不可用！  为了在cmder中使用active命令，需要安装如下：（参考的&lt;a href=&quot;http://yuhao.me/zai-powershellzhong-shi-yong-condade-activate.html&quot;&gt;这里&lt;/a&gt;）：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;conda install -n root -c pscondaenvs pscondaenvs
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda install -n root -c pscondaenvs pscondaenvs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;这样会安装与环境切换相关的三个命令：&lt;code&gt;activate.ps1&lt;/code&gt;, &lt;code&gt;deactivate.ps1&lt;/code&gt;, &lt;code&gt;invoke_cmdscript.ps1&lt;/code&gt;; 再次使用命令切换，并显示python版本，即可验证正常：&lt;/p&gt;
+&lt;p&gt;这样会安装与环境切换相关的三个命令：&lt;code class=&quot;highlighter-rouge&quot;&gt;activate.ps1&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;deactivate.ps1&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;invoke_cmdscript.ps1&lt;/code&gt;; 再次使用命令切换，并显示python版本，即可验证正常：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;activate py27
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;activate py27
 python -V
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;现在上面的这个activate指向了activate.ps1，所以正常；&lt;/p&gt;
 
-&lt;p&gt;这样，在需要esp32开发时候手动切换到py27环境即可，甚至可以开多个窗口，使用不同的python版本，非常方便。&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 25 Jul 2019 22:00:00 +0000</pubDate>
-        <link>http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/25/WIN%E5%A4%9Apython%E7%8E%AF%E5%A2%83.html</link>
-        <guid isPermaLink="true">http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/25/WIN%E5%A4%9Apython%E7%8E%AF%E5%A2%83.html</guid>
-        
-        
-        <category>技术</category>
-        
-      </item>
-    
-      <item>
-        <title>读5min AWS-IOT入门</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/20190718225046.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;这样，在需要esp32开发时候手动切换到py27环境即可，甚至可以开多个窗口，使用不同的python版本，非常方便。&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">读5min AWS-IOT入门</title><link href="ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/18/aws-iot-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-copy.html" rel="alternate" type="text/html" title="读5min AWS-IOT入门" /><published>2019-07-18T22:00:00+08:00</published><updated>2019-07-18T22:00:00+08:00</updated><id>ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/18/aws-iot-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%20copy</id><content type="html" xml:base="ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/18/aws-iot-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-copy.html">&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/20190718225046.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;学习AWS-IOT的第一篇，教程的网页在&lt;a href=&quot;https://eu-west-1.console.aws.amazon.com/iot/home?region=eu-west-1#/tutorial?step=2&quot;&gt;这里&lt;/a&gt;;&lt;/p&gt;
 
@@ -165,32 +212,18 @@ python -V
 
 &lt;p&gt;那么IOT所有的一切(包括这个教程)，都是围绕这两个角色展开。&lt;/p&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;消息是什么？&lt;/h3&gt;
+&lt;h3 id=&quot;消息是什么&quot;&gt;消息是什么？&lt;/h3&gt;
 &lt;p&gt;教程里面，在设备和云端会传输消息，这个消息到底是什么？我的理解是： 消息是对设备实体的抽象和约束。 抽象是指用属性和方法的集合来代替设备本身；约束是标准化，格式化，去个性化，只有约束才能通往自由的连接，过度的自由是混乱的根源。&lt;/p&gt;
 
 &lt;p&gt;消息到底是什么？消息是命令的载体，好像是废话。如果消息的主语是资源，那么就是类似RESTFUL的消息；如果消息的主语是动词，那么就类似RPC之流。不管如何，消息本身好像真没啥好说的，其后面隐藏的抽象和约束才是真正的价值所在。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;关于规则&lt;/h3&gt;
+&lt;h3 id=&quot;关于规则&quot;&gt;关于规则&lt;/h3&gt;
 &lt;p&gt;规则引擎就是IFTTT，它是消息的网络中枢。既然是规则引擎，那么显然是写死的逻辑，不知道AWS所谓的人工智能是否在这里有所作为。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;设备影子是什么？&lt;/h3&gt;
+&lt;h3 id=&quot;设备影子是什么&quot;&gt;设备影子是什么？&lt;/h3&gt;
 &lt;p&gt;设备影子是云眼里的“实物”，云看不到真实的设备，只有影子。非常高明的一层抽象(本质是代理)，云端所有服务都与影子交互，大家都是比特，无需顾忌在线不在线，上电没上电，只需影子本身与设备实体做好同步即可。&lt;/p&gt;
 
-&lt;p&gt;最后，AWS-IOT的这个图很形象，主要功能一目了然，我感觉光看这个图就入门了。&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 18 Jul 2019 22:00:00 +0000</pubDate>
-        <link>http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/18/aws-iot-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%20copy.html</link>
-        <guid isPermaLink="true">http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/07/18/aws-iot-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%20copy.html</guid>
-        
-        
-        <category>技术</category>
-        
-      </item>
-    
-      <item>
-        <title>修复SS</title>
-        <description>&lt;p&gt;好几天前vultr的ss端口就被干掉了，没有强烈的查询需求，所以也一直没有弄。&lt;/p&gt;
+&lt;p&gt;最后，AWS-IOT的这个图很形象，主要功能一目了然，我感觉光看这个图就入门了。&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">修复SS</title><link href="ashliu.com/%E6%8A%80%E6%9C%AF/2019/02/18/%E6%98%A5%E8%8A%82%E5%AE%8C%E6%AF%95.html" rel="alternate" type="text/html" title="修复SS" /><published>2019-02-18T22:00:00+08:00</published><updated>2019-02-18T22:00:00+08:00</updated><id>ashliu.com/%E6%8A%80%E6%9C%AF/2019/02/18/%E6%98%A5%E8%8A%82%E5%AE%8C%E6%AF%95</id><content type="html" xml:base="ashliu.com/%E6%8A%80%E6%9C%AF/2019/02/18/%E6%98%A5%E8%8A%82%E5%AE%8C%E6%AF%95.html">&lt;p&gt;好几天前vultr的ss端口就被干掉了，没有强烈的查询需求，所以也一直没有弄。&lt;/p&gt;
 
 &lt;p&gt;之前想复杂了，以为要换IP或者重建主机，今天试了试修改端口，发现直接就OK了，感谢GFW不杀之恩，后来想想80端口都好好的，可见GFW并不会直接封IP全封。&lt;/p&gt;
 
@@ -200,20 +233,7 @@ python -V
 
 &lt;p&gt;然后是APP的选择，简单搜了一圈，免费好用的是一个叫做Potatso的工具。安装以后，会弹出要添加服务器的提示，中文。选择扫描二维码的方式，把电脑里已经配置的参数就直接copy了。&lt;/p&gt;
 
-&lt;p&gt;然后就没有然后了。&lt;/p&gt;
-</description>
-        <pubDate>Mon, 18 Feb 2019 22:00:00 +0000</pubDate>
-        <link>http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/02/18/%E6%98%A5%E8%8A%82%E5%AE%8C%E6%AF%95.html</link>
-        <guid isPermaLink="true">http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/02/18/%E6%98%A5%E8%8A%82%E5%AE%8C%E6%AF%95.html</guid>
-        
-        
-        <category>技术</category>
-        
-      </item>
-    
-      <item>
-        <title>春节完毕</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/221-1Z111143J6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;然后就没有然后了。&lt;/p&gt;</content><author><name></name></author><summary type="html">好几天前vultr的ss端口就被干掉了，没有强烈的查询需求，所以也一直没有弄。</summary></entry><entry><title type="html">春节完毕</title><link href="ashliu.com/%E7%94%9F%E6%B4%BB/2019/02/10/%E4%BF%AE%E5%A4%8DSS.html" rel="alternate" type="text/html" title="春节完毕" /><published>2019-02-10T22:00:00+08:00</published><updated>2019-02-10T22:00:00+08:00</updated><id>ashliu.com/%E7%94%9F%E6%B4%BB/2019/02/10/%E4%BF%AE%E5%A4%8DSS</id><content type="html" xml:base="ashliu.com/%E7%94%9F%E6%B4%BB/2019/02/10/%E4%BF%AE%E5%A4%8DSS.html">&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/221-1Z111143J6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;2019农历春节的最后一天假日，上午睡到10点多，然后一家三口跑去看了&lt;流浪地球&gt;，非常棒的一部科幻电影，时间花的很满足。下午回家随意一折腾，发现就到了晚上，天寒地冻的，感觉就是洗洗睡觉的节奏了。但是，总感觉欠点什么，想着还是记一点杂杂碎吧。&lt;/流浪地球&gt;&lt;/p&gt;
 
@@ -225,20 +245,7 @@ python -V
 
 &lt;p&gt;老丈人去的也真是时候，这才没两天，小舅子就当爹了，都得乐呵呵的忙上一段时间了。一切也都顺利。&lt;/p&gt;
 
-&lt;p&gt;去找本小说看看吧，冷。&lt;/p&gt;
-</description>
-        <pubDate>Sun, 10 Feb 2019 22:00:00 +0000</pubDate>
-        <link>http://ashliu.com/%E7%94%9F%E6%B4%BB/2019/02/10/%E4%BF%AE%E5%A4%8DSS.html</link>
-        <guid isPermaLink="true">http://ashliu.com/%E7%94%9F%E6%B4%BB/2019/02/10/%E4%BF%AE%E5%A4%8DSS.html</guid>
-        
-        
-        <category>生活</category>
-        
-      </item>
-    
-      <item>
-        <title>XPS卡顿问题</title>
-        <description>&lt;p&gt;笔记本太老了，不适合现在的使用场景，FPGA编译，嵌入式的一些小开发，都需要较高性能的win环境，前前后后看了surface，联想和戴尔，最后还是被戴尔的XPS外观所动，实体店都没有去看，直接淘宝买了。为什么选择这么风险的渠道？因为便宜好几千。。&lt;/p&gt;
+&lt;p&gt;去找本小说看看吧，冷。&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">XPS卡顿问题</title><link href="ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/28/XPS%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98.html" rel="alternate" type="text/html" title="XPS卡顿问题" /><published>2019-01-28T00:34:00+08:00</published><updated>2019-01-28T00:34:00+08:00</updated><id>ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/28/XPS%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98</id><content type="html" xml:base="ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/28/XPS%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98.html">&lt;p&gt;笔记本太老了，不适合现在的使用场景，FPGA编译，嵌入式的一些小开发，都需要较高性能的win环境，前前后后看了surface，联想和戴尔，最后还是被戴尔的XPS外观所动，实体店都没有去看，直接淘宝买了。为什么选择这么风险的渠道？因为便宜好几千。。&lt;/p&gt;
 
 &lt;p&gt;刚到手还是挺兴奋的，4K的屏真不是盖的，亮瞎双眼的节奏。但是很快就发现了问题：卡顿。卡的动都动不了，就很奇怪，新系统什么都没有装的，卡的尼玛连关机都困难，还一阵一阵的，非常烦人。&lt;/p&gt;
 
@@ -250,157 +257,4 @@ python -V
 
 &lt;p&gt;晚上回家后，本来想做脚本的事情，但是一直纠结于卡顿静不下心，所以就白天的信息，专门google了一番，真是收获巨大！在ms网站上找到了对这个问题的&lt;a href=&quot;https://answers.microsoft.com/en-us/windows/forum/windows_10-performance/intel-nvidia-laptop-freeze-problem/93e7004a-62b1-4211-8e37-4c136608865e?page=69&quot;&gt;分析&lt;/a&gt;，居然是一个WIN10的bug，加上戴尔提供的驱动程序版本太低，所以一直无法解决。解决方法也很简单，直接去Intel下载&lt;a href=&quot;https://downloadcenter.intel.com/download/27892&quot;&gt;新的驱动&lt;/a&gt;，安装，OK。。。真是无语了。&lt;/p&gt;
 
-&lt;p&gt;终于可以安心的装软件了，以及睡觉。&lt;/p&gt;
-</description>
-        <pubDate>Mon, 28 Jan 2019 00:34:00 +0000</pubDate>
-        <link>http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/28/XPS%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98.html</link>
-        <guid isPermaLink="true">http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/28/XPS%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98.html</guid>
-        
-        
-        <category>技术</category>
-        
-      </item>
-    
-      <item>
-        <title>自动编译blog</title>
-        <description>&lt;p&gt;网速才是第一生产力，vultr真是太慢了，敲命令敲的头疼。&lt;/p&gt;
-
-&lt;p&gt;白天蹲坑的时候看了下通用的实现方式，发现github自身就带webhook，配置一下就可以直接在repo更新时候触发钩子访问，非常方便。&lt;/p&gt;
-
-&lt;h3 id=&quot;uwsgi&quot;&gt;uwsgi&lt;/h3&gt;
-&lt;p&gt;本来应该用Nginx+uwsgi+flask实现多app的部署，实在是懒得去敲命令行了，放弃。直接制定端口算了，反正github也支持。&lt;/p&gt;
-
-&lt;h3 id=&quot;flask&quot;&gt;Flask实现&lt;/h3&gt;
-&lt;p&gt;最近看了一个&lt;a href=&quot;https://github.com/flask-restful/flask-restful&quot;&gt;flask_restful&lt;/a&gt;的包，可以非常容易的构建api应用。当然了，其实直接flask就够了，得到github来的代码，触发动作即可。代码很挫，在&lt;a href=&quot;https://github.com/ash-liu/api&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
-
-&lt;h3 id=&quot;supervisor&quot;&gt;关于supervisor&lt;/h3&gt;
-&lt;p&gt;在我心目中神级的存在，居然不支持python3…解决方案是把系统的python和pip链接到python2和pip2，安装好以后，在把软件连切换回python3，最后还要修改supervisor的代码。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo ln -s /usr/bin/python2.7 /usr/bin/python
-sudo ln -s /usr/bin/pip2 /usr/bin/pip
-sudo vim /usr/local/bin/supervisorctl	#把里面首行的解释器指向python2
-sudo vim /usr/local/bin/supervisord		#把里面首行的解释器指向python2
-sudo vim /usr/local/bin/echo_supervisord_conf  #把里面首行的解释器指向python2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;然后添加一个Flask的监控conf文件，网上抄的。好像依然有点问题，无法通过/etc/init的脚本来控制，懒得看了。&lt;/p&gt;
-
-&lt;h3 id=&quot;ss&quot;&gt;ss蹦了&lt;/h3&gt;
-&lt;p&gt;想都不用想，肯定和安装了python3相关，和supervisor类似，把其解释器制定为python2即可，&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;whereis ssserver	# 找到命令的位置
-sudo vim /usr/local/bin/ssserver  #把里面首行的解释器指向python2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ps.改nginx配置，把blog也改蹦了，也懒得看了，把做的修改全部去掉后恢复。。&lt;/p&gt;
-</description>
-        <pubDate>Wed, 23 Jan 2019 00:34:00 +0000</pubDate>
-        <link>http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/23/%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91blog.html</link>
-        <guid isPermaLink="true">http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/23/%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91blog.html</guid>
-        
-        
-        <category>技术</category>
-        
-      </item>
-    
-      <item>
-        <title>记录jekyll环境搭建</title>
-        <description>&lt;p&gt;本以为写完了早点休息，结果被jekyll的环境折腾了好久。之前一直是用笔记本build好以后push到github，然后在ashliu.com拉下来，今天笔记本没带，果然又被坑了。&lt;/p&gt;
-
-&lt;h3 id=&quot;gemjeykllbundler&quot;&gt;1. 安装gem，jeykll和bundler&lt;/h3&gt;
-&lt;p&gt;这一步骤可以部分参考&lt;a href=&quot;https://jekyllrb.com/docs/installation/ubuntu/&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get install ruby-full build-essential zlib1g-dev
-echo &#39;# Install Ruby Gems to ~/gems&#39; &amp;gt;&amp;gt; ~/.zshrc
-echo &#39;export GEM_HOME=&quot;$HOME/gems&quot;&#39; &amp;gt;&amp;gt; ~/.zshrc
-echo &#39;export PATH=&quot;$HOME/gems/bin:$PATH&quot;&#39; &amp;gt;&amp;gt; ~/.zshrc
-source ~/.zshrc
-gem install bundler
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;我用的是zsh，所以是zshrc。因为我之前用的是jekyll2版本做的blog，所以这里不能直接用gem来install jekyll，这样会安装为3.0版本，编译不过。改成如下的安装命令：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;gem install jekyll --version=2.0
-gem install maruku
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;通过制定版本来安装，另一个gem包是依赖包，一并安装好。&lt;/p&gt;
-
-&lt;h3 id=&quot;section&quot;&gt;2. 修改目录权限&lt;/h3&gt;
-&lt;p&gt;由于/var/www目录下是root权限，之前也懒得改，现在不用sudo会有权限问题，用sudo找不到jekyll命令。所以简单的方式就是把www目录下的ash-liu.github.io目录修改为ash用户所有，命令如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo chown  -R ash ./ash-liu.github.io
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;需要注意的是-R递归调用，所有的子目录和文件全部修改。&lt;/p&gt;
-
-&lt;h3 id=&quot;build&quot;&gt;3. build&lt;/h3&gt;
-&lt;p&gt;最后进入ash-liu.github.io目录，直接build即可：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;jekyll build
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;完工。后期有时间，要写个自动编译的钩子脚本，Github上有更新，就拉下来编译更新。&lt;/p&gt;
-</description>
-        <pubDate>Tue, 22 Jan 2019 00:34:00 +0000</pubDate>
-        <link>http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/22/%E8%AE%B0%E5%BD%95%E4%B8%8Bjeykll%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html</link>
-        <guid isPermaLink="true">http://ashliu.com/%E6%8A%80%E6%9C%AF/2019/01/22/%E8%AE%B0%E5%BD%95%E4%B8%8Bjeykll%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html</guid>
-        
-        
-        <category>技术</category>
-        
-      </item>
-    
-      <item>
-        <title>思维模式</title>
-        <description>&lt;p&gt;前段时间一直很忙，这不是一个很好的状态，因为思考和总结的时间全部被繁冗的工作占据，没有思考和沉淀，就是看起来很忙的那种忙吧。&lt;/p&gt;
-
-&lt;p&gt;读了一本书，&lt;重新定义成功的思维模式&gt;，看某个公众号推荐的，名字就很鸡汤的那种，其实内容也是。。但是，它核心论点我的赞同的：我们应该使用学习的角度来看待问题和争执，而不是试图为了证明自己的正确性。&lt;/重新定义成功的思维模式&gt;&lt;/p&gt;
-
-&lt;p&gt;最早发现这个特性，是在一哥身上，不管他是对是错，都能够在问题讨论中吸取些什么，如果错了，获得知识，如果对了，获得你错误的经验。所以当你试图怼他的时候，总是他占便宜，特别的憋屈。而我则喜欢捍卫自我(ego)，以及由自我产生的关联和想法，ego，这就是关键。当为了自我而辩护的时候，是缺乏理性的，你认为你的观点就是你自身，就是你的尊严，所以搜肠刮肚也得为了ego而战，可能自己都意识不到这个变化，本来是争论某个问题的，却悄然上升到了人格层面的争论，所以在怎么抵御也不为过。&lt;/p&gt;
-
-&lt;p&gt;老子说：“及吾无身，吾有何患？”，其实就是这个意思。只有当你放下ego的盔甲，真正拥抱开放的时候，你会发现思维方式有极大的变化。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;这是一种务实的思维方式。无我以后的空杯心态，能够更大的获取成长；&lt;/li&gt;
-  &lt;li&gt;这是一种自信的思维方式。放开那个小我以后，会获得更燃超然的大我；&lt;/li&gt;
-  &lt;li&gt;丢掉桎梏，会更加的放飞自我。不用在无谓的抵御，更多的心力去天马行空。&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Mon, 21 Jan 2019 23:34:00 +0000</pubDate>
-        <link>http://ashliu.com/%E7%94%9F%E6%B4%BB/2019/01/21/%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%BC%8F.html</link>
-        <guid isPermaLink="true">http://ashliu.com/%E7%94%9F%E6%B4%BB/2019/01/21/%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%BC%8F.html</guid>
-        
-        
-        <category>生活</category>
-        
-      </item>
-    
-      <item>
-        <title>贴图</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/2008092904.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;最近有点忙，很忙的那种。。如图中所示，之前的图没法回来了，无语。&lt;/p&gt;
-
-&lt;p&gt;下午抽点时间做了个静态的图床，不折腾了。&lt;/p&gt;
-
-&lt;h3 id=&quot;section&quot;&gt;图一: &lt;回家路口&gt;&lt;/回家路口&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/2008092903.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;图二: &lt;早餐奶&gt;&lt;/早餐奶&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/2008092902.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;section-2&quot;&gt;图三: &lt;地面&gt;&lt;/地面&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;http://pic.ashliu.com/2008092901.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 22 Sep 2018 17:34:00 +0000</pubDate>
-        <link>http://ashliu.com/%E7%94%9F%E6%B4%BB/2018/09/22/%E5%9B%BE.html</link>
-        <guid isPermaLink="true">http://ashliu.com/%E7%94%9F%E6%B4%BB/2018/09/22/%E5%9B%BE.html</guid>
-        
-        
-        <category>生活</category>
-        
-      </item>
-    
-  </channel>
-</rss>
+&lt;p&gt;终于可以安心的装软件了，以及睡觉。&lt;/p&gt;</content><author><name></name></author><summary type="html">笔记本太老了，不适合现在的使用场景，FPGA编译，嵌入式的一些小开发，都需要较高性能的win环境，前前后后看了surface，联想和戴尔，最后还是被戴尔的XPS外观所动，实体店都没有去看，直接淘宝买了。为什么选择这么风险的渠道？因为便宜好几千。。</summary></entry></feed>

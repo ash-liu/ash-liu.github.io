@@ -1,0 +1,2 @@
+I"1<p>添加Transmission是比较简单的，直接在network–&gt;bittorrent下面，勾选上Transmission的deamon和web选项即可，这里有一点是deamon下面的那个字符串客户端transmission-cli会占用700+K的空间，如果没有必要可以不要，仅仅使用web的就可以了。</p>
+:ET
