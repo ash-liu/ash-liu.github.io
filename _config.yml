@@ -30,7 +30,9 @@ github_username:  ash-liu
 # Build settings
 theme: minima
 plugins:
-  - jekyll-feed
+  - jekyll-sitemap  # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed     # Create an Atom feed using the official Jekyll feed gem
+  - jekyll-paginate
 
 paginate: 10
 paginate_path: "page:num"
