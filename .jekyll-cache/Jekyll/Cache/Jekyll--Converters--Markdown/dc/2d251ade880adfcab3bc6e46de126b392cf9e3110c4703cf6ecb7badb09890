@@ -1,0 +1,46 @@
+I"q	<p><img src="http://pic.ashliu.com/2019080203.png" alt="" /></p>
+
+<p>Jetson上面为了方便，使用了一个wifi usb dongle，在家里面连接网络的时候，是通过桌面操作完成的，今天在公司没有HDMI显示器，只能通过命令行的方式完成，记录下过程。</p>
+
+<h4 id="iw方式用不了">iw方式用不了</h4>
+
+<p>linux下的wifi管理，网上都是iw命令，但是对于我使用的dongle，iw命令无法使用，会提示如下error：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>command failed: No such device (-19)
+</code></pre></div></div>
+
+<p>使用lsusb，得到dongle的信息如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bus 002 Device 002: ID 0bda:0411 Realtek Semiconductor Corp.
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 003: ID 0bda:8179 Realtek Semiconductor Corp. RTL8188EUS 802.11n Wireless Network Adapter
+Bus 001 Device 002: ID 0bda:5411 Realtek Semiconductor Corp.
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+</code></pre></div></div>
+
+<p>并不是wlan0没有up，因为使用 <code class="highlighter-rouge">iwlist scan</code> 是可以扫描到ap信息的，说明底层设备已经跑起来了。上网搜了下，很多树莓派的用户有这个问题，但是没有好的解决方案。</p>
+
+<h4 id="nmcli工具">nmcli工具</h4>
+
+<p>ubuntu的桌面环境使用Network Manager来管理网络，就是这个界面：</p>
+
+<p><img src="http://pic.ashliu.com/2019080201.gif" alt="" /></p>
+
+<p>其对应一个命令行的管理工具：nmcli，网络相关的操作都可以通过它来完成，比如我们需要的wifi连接。</p>
+
+<p>显示wifi列表：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmcli dev wifi list
+</code></pre></div></div>
+
+<p>连接到wifi：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nmcli con add con-name hongtuotech3 ifname wlan0 type wifi ssid hongtuotech3
+</code></pre></div></div>
+
+<p>搞定。</p>
+
+<p>更加详细的操作说明，可以参考红帽的<a href="https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/networking_guide/sec-using_the_networkmanager_command_line_tool_nmcli">一篇文章</a>。</p>
+
+<p>PS, 如今红帽也卖身了。</p>
+:ET

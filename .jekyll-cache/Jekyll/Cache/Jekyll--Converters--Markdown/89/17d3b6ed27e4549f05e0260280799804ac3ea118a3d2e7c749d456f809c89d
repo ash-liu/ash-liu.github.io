@@ -1,0 +1,36 @@
+I"<p><img src="http://pic.ashliu.com/20180917.jpg" alt="" /></p>
+
+<p>在查看”热心读者“来信的时候，无意间看到了七牛发给我的邮件，原来空间外链的域名会30天一换，这会导致我之前的图片地址失效。登陆其后台看了下，虽然可以绑定固定的域名，但是要IPC实名验证。</p>
+
+<p>好吧，只能自己动手了，大体思路是在Nginx下挂一个代理，用一个不变的域名映射到随他怎么变的七牛地址即可。</p>
+
+<h3 id="1-整一个固定的域名">1. 整一个固定的域名</h3>
+
+<p>不用想了，肯定是<strong>pic.ashliu.com</strong>。为了让它可以指向vps的ip，需要在域名管理后台添加一个CNAME，协议是pic，然后指向@即可。设置以后，ping下<strong>pic.ashliu.com</strong>，查看dns是否生效。</p>
+
+<h3 id="2-nginx配置">2. Nginx配置</h3>
+
+<p>首先，在<code class="highlighter-rouge">/etc/nginx/sites-available/</code>目录下新建一个名为pic的文件，作为<strong>pic.ashliu.com</strong>主机的配置文件，里面的内容很简单：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+    listen 80;
+    server_name pic.ashliu.com;
+    return 301 http://7xk84a.com1.z0.glb.clouddn.com$uri;
+}
+</code></pre></div></div>
+
+<p>监听80端口，监听的主机是<strong>pic.ashliu.com</strong>，执行重定向操作，其中$uri代表URI路径，也就是地址除域名外的其他部分。</p>
+
+<p>然后，在<code class="highlighter-rouge">/etc/nginx/sites-enabled/</code>建立一个软连接，指向上面那个pic文件：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ln -s ../sites-available/pic pic
+</code></pre></div></div>
+
+<p>最后，reload配置即可：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nginx -s reload
+</code></pre></div></div>
+
+<h2 id="关于图">关于图</h2>
+<p>图为今天晚饭后回公司路上所拍，风景不错，黄昏尤甚。</p>
+:ET

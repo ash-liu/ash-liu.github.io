@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>使用Ds18b20上传温度到LeanCloud | ash的blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="使用Ds18b20上传温度到LeanCloud" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="一些观点 最近LeanCloud好像不怎么稳定，知乎和V2EX上面好多人在说LC的坏话，LC的CEO江宏也专门出来做了说明。我觉得如果是企业级大批量客户的话，频繁的当机确实令人无法忍受，这时考虑迁走是应该的；但作为一般的小项目，我是觉得问题不大，而且这样的状况估计也是越来越少，与其花时间来重建后端或者迁移其他平台，还真不如留下。当然了，前提是LC得改进，改进，再改进，稳定，稳定，在稳定。" />
+<meta property="og:description" content="一些观点 最近LeanCloud好像不怎么稳定，知乎和V2EX上面好多人在说LC的坏话，LC的CEO江宏也专门出来做了说明。我觉得如果是企业级大批量客户的话，频繁的当机确实令人无法忍受，这时考虑迁走是应该的；但作为一般的小项目，我是觉得问题不大，而且这样的状况估计也是越来越少，与其花时间来重建后端或者迁移其他平台，还真不如留下。当然了，前提是LC得改进，改进，再改进，稳定，稳定，在稳定。" />
+<link rel="canonical" href="ashliu.com/2015/07/01/update-ir-LC.html" />
+<meta property="og:url" content="ashliu.com/2015/07/01/update-ir-LC.html" />
+<meta property="og:site_name" content="ash的blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-07-01T14:30:00+08:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"使用Ds18b20上传温度到LeanCloud","dateModified":"2015-07-01T14:30:00+08:00","datePublished":"2015-07-01T14:30:00+08:00","url":"ashliu.com/2015/07/01/update-ir-LC.html","mainEntityOfPage":{"@type":"WebPage","@id":"ashliu.com/2015/07/01/update-ir-LC.html"},"description":"一些观点 最近LeanCloud好像不怎么稳定，知乎和V2EX上面好多人在说LC的坏话，LC的CEO江宏也专门出来做了说明。我觉得如果是企业级大批量客户的话，频繁的当机确实令人无法忍受，这时考虑迁走是应该的；但作为一般的小项目，我是觉得问题不大，而且这样的状况估计也是越来越少，与其花时间来重建后端或者迁移其他平台，还真不如留下。当然了，前提是LC得改进，改进，再改进，稳定，稳定，在稳定。","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="ashliu.com/feed.xml" title="ash的blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">ash的blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+            <a class="page-link" href="/about">About</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">使用Ds18b20上传温度到LeanCloud</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2015-07-01T14:30:00+08:00" itemprop="datePublished">Jul 1, 2015
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h3 id="一些观点">一些观点</h3>
+<p>最近LeanCloud好像不怎么稳定，知乎和V2EX上面好多人在说LC的坏话，LC的CEO江宏也专门出来做了说明。我觉得如果是企业级大批量客户的话，频繁的当机确实令人无法忍受，这时考虑迁走是应该的；但作为一般的小项目，我是觉得问题不大，而且这样的状况估计也是越来越少，与其花时间来重建后端或者迁移其他平台，还真不如留下。当然了，前提是LC得改进，改进，再改进，稳定，稳定，在稳定。</p>
+
+<hr />
+
+<h3 id="ds18b20硬件连接">DS18B20硬件连接</h3>
+<p>温度传感器我使用的是DS18b20，一个像三极管一样的单总线温度传感器，非常好用。由于板子上面的GPIO0-2都被其他功能占用，所以我直接选择了GPIO7作为ds18b20的信号脚，电源和地分别接到3.3V和GND，然后在GPIO7和3.3v之间上拉一个1k以上的电阻，这样就完成了硬件的连接。</p>
+
+<h3 id="menuconfig的配置">menuconfig的配置</h3>
+<p>在OW的menuconfig里面已经包含了DS18b20，在:kernel modules –&gt;w1 support –&gt;kmod-w1.在里面勾选上kmod-w1-master-gpio以及kmod-w1-slave-therm，然后退出编译即可。</p>
+
+<p>w1表示单总线(其会实现为一个bus)，master-gpio表示一个gpio式的控制器，slave-therm表示温度传感设备。为什么要这么复杂呢？因为w1总线上面可以挂载多个控制器，每个控制器下面又可以连接多个从设备，所以需要实现为类似的树状结构。</p>
+
+<h3 id="dts文件">DTS文件</h3>
+<p>这样还没有完，配置好之后，仅仅是有了driver，我们还需要到dts文件中去定义device。首先，定位到~ow/target/linux/ramips/dts目录，找到设备相关的描述文件，我的是mpra2.dts和rt5350.dtsi。</p>
+
+<p>首先是pinctl的分配，把uartf组设置为gpio功能，然后添加kmod-w1-master-gpio的设备描述即可：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpio-temp {
+	compatible = "w1-gpio";
+	gpios = &lt;&amp;gpio0 7 1&gt;;
+};
+</code></pre></div></div>
+
+<p>compatible属性是用来匹配of match table的，必须是w1-gpio，gpios是指定io端口，与我们硬件的连接一致即可。</p>
+
+<h3 id="温度的查看">温度的查看</h3>
+<p>编译下载之后，我们就可以进入系统查看到上面添加的东西了：w1在/sys/bus/下面，master-gpio在/sys/devices/w1_bus_master1/下面，以28-开头的就是ds18b20了。w1总线会每隔10s检测一次总线是否有控制器，所以可以上电情况下热拔插更多的传感器(如果硬件可以hot plug的话)，被检测到之后均会列入这个目录下面。进入控制器的目录(28-开头的那个)，里面有个w1_slave文件，直接cat就可以得到slave返回的输出了，形如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0b 02 55 00 7f ff 0c 10 60 : crc=60 YES     
+0b 02 55 00 7f ff 0c 10 60 t=32687
+</code></pre></div></div>
+
+<p>32687就表示32.678度，好热。</p>
+
+<p>我使用的开发板在这里碰到了一些麻烦，总是检测不到18b20，后来使用示波器一看波形，再次发现了这个老问题：<strong>udelay存在误差，真实的延迟时间会是给定参数的2倍</strong>，所以需要把所有delay的时间全部除以2才能让18b20正常的工作。这里为了方便，直接在build目录下面修改文件：build_dir/target-mipsel_24kec+dsp_uClibc-0.9.33.2/linux-ramips_rt305x/linux-3.14.25/drivers/w1/w1_io.c里面的w1_delay函数，把传递进来的参数右移一位即可。这么做有一个缺点，那就是build_dir是一个中间文件，如果某天重新编译的话，这个修改是不起作用的，最好的办法是在package里面添加patch文件，这里我就懒得整了。</p>
+
+<h3 id="leancloud设置">LeanCloud设置</h3>
+<p>LeanCloud端需要设置的很少，为了方便和安全，专门建立一个HomeT的项目，然后在里面建立了一个T class，T暂时只设置一个类型为string的属性。最后记住app id和app key就算完成了LeanCloud端的设置。</p>
+
+<h3 id="编译curl">编译curl</h3>
+<p>与LeanCloud通信的方式很多，最适合openwrt使用的肯定是restful api——因为可以直接使用curl工具。进入ow的menuconfig，在network–&gt;file transfer–&gt;curl可以找到(我反反复复找了好久都没有找到，最后没辙了，查makefile文件才找到它..)，然后进入lib–&gt;libcurl–&gt;*里面全部enable，然后再ssh里面勾选openssl。然后退出编译。这里有一点是为什么要带ssl？原因是LeanCloud的restful服务器全部是https的，所以必须得带这个。</p>
+
+<h3 id="使用curl">使用curl</h3>
+<p>curl的使用可以参考LeanCloud的文档，特别是在线api测试的那个，直接copy过来就可以了。但是这里会出现一个问题：在mac上面是可以成功的，在ow上面却不行，会提示certificate verify failed之类的信息，意思是证书验证失败，可以参考<a href="http://jqlblue.github.io/2014/05/14/a-trouble-in-request-https-in-curl/">这里</a>，简单的解决办法是使用<strong>-k</strong>参数来取消ssl证书的验证，另一个更新证书的方式我尝试了一下，没有成功。</p>
+
+<h3 id="lua粘合">lua粘合</h3>
+<p>最后，使用lua语言简单粘合起来(file:updateT.lua)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#!/usr/bin/lua</span>
+
+<span class="kd">local</span> <span class="n">util</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">"luci.util"</span><span class="p">)</span>
+
+<span class="n">APP_ID</span>  <span class="o">=</span> <span class="s2">""</span>
+<span class="n">APP_KEY</span> <span class="o">=</span> <span class="s2">""</span>
+
+<span class="k">function</span> <span class="nf">read_T</span><span class="p">()</span>
+	<span class="kd">local</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">util</span><span class="p">.</span><span class="n">exec</span><span class="p">(</span><span class="s2">"cat /sys/devices/w1_bus_master1/28-0414517510ff/w1_slave"</span><span class="p">)</span>
+	<span class="k">return</span> <span class="nb">string.sub</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+<span class="k">end</span>
+
+<span class="n">cmd</span> <span class="o">=</span> <span class="s2">"curl -k -X POST -H \"</span><span class="n">X</span><span class="o">-</span><span class="n">AVOSCloud</span><span class="o">-</span><span class="n">Application</span><span class="o">-</span><span class="n">Id</span><span class="p">:</span> <span class="o">%</span><span class="n">s</span><span class="err">\</span><span class="s2">" -H \"</span><span class="n">X</span><span class="o">-</span><span class="n">AVOSCloud</span><span class="o">-</span><span class="n">Application</span><span class="o">-</span><span class="n">Key</span><span class="p">:</span> <span class="o">%</span><span class="n">s</span><span class="err">\</span><span class="s2">" -H \"</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span><span class="err">\</span><span class="s2">" -d '{\"</span><span class="n">t</span><span class="err">\</span><span class="s2">":\"</span><span class="o">%</span><span class="n">s</span><span class="err">\</span><span class="s2">"}' https://api.leancloud.cn/1.1/classes/T"</span><span class="p">;</span>
+<span class="n">cmd</span> <span class="o">=</span> <span class="nb">string.format</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">APP_ID</span><span class="p">,</span> <span class="n">APP_KEY</span><span class="p">,</span> <span class="n">read_T</span><span class="p">());</span>
+<span class="n">util</span><span class="p">.</span><span class="n">exec</span><span class="p">(</span><span class="n">cmd</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>添加+x属性，然后把文件丢到/usr/sbin下面。</p>
+
+<h3 id="cron周期执行">cron周期执行</h3>
+<p>执行crontab -e，在里面加入：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * *  /usr/sbin/updateT.lua
+</code></pre></div></div>
+
+<p>表示每天的每分钟都执行一次。</p>
+
+
+  </div><a class="u-url" href="/2015/07/01/update-ir-LC.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">ash的blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">ash的blog</li><li><a class="u-email" href="mailto:ww7472242@gmail.com">ww7472242@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ash-liu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ash-liu</span></a></li><li><a href="https://www.twitter.com/ash_liu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">ash_liu</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>知行合一.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

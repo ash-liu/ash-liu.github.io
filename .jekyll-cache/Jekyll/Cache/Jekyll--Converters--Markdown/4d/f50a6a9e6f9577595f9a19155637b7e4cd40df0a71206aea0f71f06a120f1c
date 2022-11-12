@@ -1,0 +1,22 @@
+I"�<p>之前提到过http://scriptogr.am/出了点问题，导致提交的中文名无法识别，每次都要手动修改并提交到dropbox，有点浪费时间，今天看了下dropbox的api自己写了个脚本来完成。</p>
+
+<h3 id="dropbox验证与提交">Dropbox验证与提交</h3>
+<p>为了提交文件到Dropbox，需要声请一个app，声请之后会有一个App key与App secret，这在0Auth中会用到，然后一步一步根据Dropbox的官方文档就能完成验证，并实现upload文件。参见<a href="https://www.dropbox.com/developers/core/start/python">这里</a>。</p>
+
+<h3 id="保存token">保存token</h3>
+<p>文档里面的过程每次都需要在线去验证，为了免去麻烦，可以把得到的token变量保存到本地(序列化到本地)。python直接使用cPickle:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#保存变量到文件
+cPickle.dump(access_token, open("token", "wb"))
+#读取变量
+access_token = cPickle.load(open("token", "rb"))
+</code></pre></div></div>
+
+<p>所以，先用文档demo跑一遍，拿到token后就无需再次验证了，以后直接从文件得到token即可。</p>
+
+<h3 id="命名文件">命名文件</h3>
+<p>之前就是无法识别中文名字，所以把提交的文件名用日期加一个random数来表示。免得每次修改代码，把需要上传的文件名也通过参数传递进去，最后，在scriptogr.am的设置里面，设置自动从Dropbox里面发布文章。(我猜测应该是自动同步吧，还没有验证)。</p>
+
+<hr />
+<p>开始我没有看scriptogr.am的开发文档，原来可以直接通过scriptogr.am的api提交文章的，这个下次再来研究吧，http的api直接用requests库就可以搞定的。</p>
+:ET
