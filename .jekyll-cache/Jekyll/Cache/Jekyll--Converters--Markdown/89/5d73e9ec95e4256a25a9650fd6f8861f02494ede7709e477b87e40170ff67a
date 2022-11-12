@@ -1,3 +1,0 @@
-I"/<p>方案三的blog已经基本搭建了起来，在octopress的基础做了一些修改，使得post全部来自dropbox，然后使用cron周期的执行rake generate来生成静态界面，最后使用rake preview来作为web server既可。 &lt;/br&gt;
-这里简单记录下遇到的小问题：</p>
-:ET
