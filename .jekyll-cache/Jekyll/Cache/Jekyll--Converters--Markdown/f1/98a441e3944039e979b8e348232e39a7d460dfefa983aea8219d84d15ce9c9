@@ -1,0 +1,37 @@
+I"K<p>本以为写完了早点休息，结果被jekyll的环境折腾了好久。之前一直是用笔记本build好以后push到github，然后在ashliu.com拉下来，今天笔记本没带，果然又被坑了。</p>
+
+<h3 id="1-安装gemjeykll和bundler">1. 安装gem，jeykll和bundler</h3>
+<p>这一步骤可以部分参考<a href="https://jekyllrb.com/docs/installation/ubuntu/">这里</a>。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install ruby-full build-essential zlib1g-dev
+echo '# Install Ruby Gems to ~/gems' &gt;&gt; ~/.zshrc
+echo 'export GEM_HOME="$HOME/gems"' &gt;&gt; ~/.zshrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' &gt;&gt; ~/.zshrc
+source ~/.zshrc
+gem install bundler
+</code></pre></div></div>
+
+<p>我用的是zsh，所以是zshrc。因为我之前用的是jekyll2版本做的blog，所以这里不能直接用gem来install jekyll，这样会安装为3.0版本，编译不过。改成如下的安装命令：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll --version=2.0
+gem install maruku
+</code></pre></div></div>
+
+<p>通过制定版本来安装，另一个gem包是依赖包，一并安装好。</p>
+
+<h3 id="2-修改目录权限">2. 修改目录权限</h3>
+<p>由于/var/www目录下是root权限，之前也懒得改，现在不用sudo会有权限问题，用sudo找不到jekyll命令。所以简单的方式就是把www目录下的ash-liu.github.io目录修改为ash用户所有，命令如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chown  -R ash ./ash-liu.github.io
+</code></pre></div></div>
+
+<p>需要注意的是-R递归调用，所有的子目录和文件全部修改。</p>
+
+<h3 id="3-build">3. build</h3>
+<p>最后进入ash-liu.github.io目录，直接build即可：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll build
+</code></pre></div></div>
+
+<p>完工。后期有时间，要写个自动编译的钩子脚本，Github上有更新，就拉下来编译更新。</p>
+:ET

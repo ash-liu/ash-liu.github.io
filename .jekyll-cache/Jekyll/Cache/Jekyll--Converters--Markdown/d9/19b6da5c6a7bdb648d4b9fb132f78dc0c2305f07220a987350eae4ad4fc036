@@ -1,0 +1,47 @@
+I"i
+<p><img src="http://pic.ashliu.com/20180919004.jpg" alt="" /></p>
+
+<p>很早就用alfred来实现一键上传图片到七牛，但是那个时候没有想太多，刚好昨天在弄图床，索性今天就一并做好得了。</p>
+
+<h3 id="1-七牛提供的工具">1. 七牛提供的工具</h3>
+<p>要上传图片到七牛,可以通过API来实现，也可以通过工具来实现，显然工具更快。工具的名称叫<strong>qrsctl</strong>，相关的说明见官方<a href="https://developer.qiniu.com/kodo/tools/1300/qrsctl">文档</a>；</p>
+
+<p>使用2条命令：一个登陆，一个上传图片即可。唯一需要说明的是上传命令中的key：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qrsctl put -c &lt;Bucket&gt; &lt;Key&gt; &lt;SrcFile&gt;
+</code></pre></div></div>
+
+<p>简单点说，key就是上传后的文件名字，可以带<code class="highlighter-rouge">/</code>符号，比如<code class="highlighter-rouge">/jpg/abc.jpg</code>之类的。</p>
+
+<h3 id="2-alfred">2. Alfred</h3>
+
+<p>前段时间(差不多1年多了吧)一直是win7，其实已经习惯了win键然后直接输入APP名称启动的方式，所以对于alfred已经没有了初见时的那种膜拜之情，但是alfred的workflows确实值得好好品玩。</p>
+
+<p>关于如何玩workflows就不说了，仅仅记录下我的脚本和输入输出。</p>
+
+<p>首先是结构图，如下：</p>
+
+<p><img src="http://pic.ashliu.com/20180919002.jpg" alt="" /></p>
+
+<p>使用快捷键触发这个flow，然后执行特定的脚本上传文件，最后通知过程完成，以及复制地址到剪切板可以直接使用。</p>
+
+<p>唯一有技术性质的，就是这个脚本了，内容如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/ww7472242/blog/blog-pic/qrsctl login 578410647@qq.com password &gt;/dev/null
+/Users/ww7472242/blog/blog-pic/qrsctl put -c "ash-picture" {query} /Users/ww7472242/Desktop/{query} &gt;/dev/null
+echo {query}
+</code></pre></div></div>
+
+<p>就是七牛工具的基本使用，其中{query}是剪切板里面的内容，传递到脚本作为参数。打印信息重定位到null的意义是防止它传递到后级，因为仅仅需要echo命令把剪切板内容传递即可。</p>
+
+<p>最后，在剪切板输出中添加上url地址前面部分即可：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://pic.ashliu.com/{query}
+</code></pre></div></div>
+
+<p>以上，enjoy.</p>
+
+<h3 id="每日一图">每日一图</h3>
+
+<p>题图为6点定位法建立机器人TCP坐标的一瞬；</p>
+:ET

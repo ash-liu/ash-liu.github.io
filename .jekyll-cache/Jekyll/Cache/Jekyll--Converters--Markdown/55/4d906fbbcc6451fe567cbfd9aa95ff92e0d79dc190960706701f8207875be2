@@ -1,0 +1,13 @@
+I",<p><img src="http://www.ashliu.com:8080/uploads/2631App_Store.jpg" alt="" /></p>
+
+<p>app store里怎能没有ash的足迹？</p>
+
+<p>不好意思，今天弄晚了，要聊的是app store的上传。</p>
+
+<p>CJ本来说下午就可以给我apple的开发者账号，但一直等到4点多才给到手，所以在公司没弄几下就下班回家了。也是由于急着回家，很多需要仔细处理的东西都没有处理好，所以这第一次的发布有点失败。</p>
+
+<p>我主要参考的是这篇<a href="http://www.techolics.com/apple/20120401_197.html">文章</a>的文字内容，一步一步按照这个来，应该就不会错。我最开始就是漏掉了生成Provisioning Profile，结果死活找不到bundle id。教程有一点需要注意的是在Target&gt;Summary中无法直接输入注册的Bundle Identify，而是需要进入info里面设置。</p>
+
+<p>当然了，由于有了开发者账号，顺带把xcode也升级了下，告别了使用破解xcode的无奈。好吧，开始等待漫长的review过程，希望一切顺利。</p>
+
+:ET

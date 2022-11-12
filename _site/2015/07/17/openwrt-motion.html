@@ -1,104 +1,66 @@
 <!DOCTYPE html>
-<html>
-
-  <head>
+<html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>openwrt玩转摄像头——动作检测功能 | ash的blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="openwrt玩转摄像头——动作检测功能" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="前面在网页显示里面用到了mjpg-streamer，这个工具单独拿来显示视频流是很不错的，但是和我们想达到的目标太过遥远，所以我们继续玩转更强悍的工具：motion。现在才应该算是真正的开始，之前的那个仅仅是测试下摄像头。" />
+<meta property="og:description" content="前面在网页显示里面用到了mjpg-streamer，这个工具单独拿来显示视频流是很不错的，但是和我们想达到的目标太过遥远，所以我们继续玩转更强悍的工具：motion。现在才应该算是真正的开始，之前的那个仅仅是测试下摄像头。" />
+<link rel="canonical" href="ashliu.com/2015/07/17/openwrt-motion.html" />
+<meta property="og:url" content="ashliu.com/2015/07/17/openwrt-motion.html" />
+<meta property="og:site_name" content="ash的blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-07-17T00:00:00+08:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"openwrt玩转摄像头——动作检测功能","dateModified":"2015-07-17T00:00:00+08:00","datePublished":"2015-07-17T00:00:00+08:00","url":"ashliu.com/2015/07/17/openwrt-motion.html","mainEntityOfPage":{"@type":"WebPage","@id":"ashliu.com/2015/07/17/openwrt-motion.html"},"description":"前面在网页显示里面用到了mjpg-streamer，这个工具单独拿来显示视频流是很不错的，但是和我们想达到的目标太过遥远，所以我们继续玩转更强悍的工具：motion。现在才应该算是真正的开始，之前的那个仅仅是测试下摄像头。","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="ashliu.com/feed.xml" title="ash的blog" /></head>
+<body><header class="site-header" role="banner">
 
-  <title>openwrt玩转摄像头——动作检测功能</title>
-  <meta name="description" content="前面在网页显示里面用到了mjpg-streamer，这个工具单独拿来显示视频流是很不错的，但是和我们想达到的目标太过遥远，所以我们继续玩转更强悍的工具：motion。现在才应该算是真正的开始，之前的那个仅仅是测试下摄像头。">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">ash的blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
 
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://ashliu.com/2015/07/17/openwrt-motion.html">
-  <link rel="alternate" type="application/rss+xml" title="Ash的blog" href="http://ashliu.com/feed.xml" />
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-</head>
-
-
-  <body>
-
-    <header class="site-header">
-
-  <div class="wrapper">
-
-    <a class="site-title" href="/">Ash的blog</a>
-
-    <nav class="site-nav">
-      <a href="#" class="menu-icon">
-        <svg viewBox="0 0 18 15">
-          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
-          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
-          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
-        </svg>
-      </a>
-
-      <div class="trigger">
-        
-          
-          <a class="page-link" href="/about/">About</a>
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      </div>
-    </nav>
-
-  </div>
-
+        <div class="trigger">
+            <a class="page-link" href="/about">About</a>
+        </div>
+      </nav></div>
 </header>
-
-
-    <div class="page-content">
+<main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="post">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title">openwrt玩转摄像头——动作检测功能</h1>
-    <p class="post-meta">Jul 17, 2015</p>
+    <h1 class="post-title p-name" itemprop="name headline">openwrt玩转摄像头——动作检测功能</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2015-07-17T00:00:00+08:00" itemprop="datePublished">Jul 17, 2015
+      </time></p>
   </header>
 
-  <article class="post-content">
+  <div class="post-content e-content" itemprop="articleBody">
     <p>前面在网页显示里面用到了mjpg-streamer，这个工具单独拿来显示视频流是很不错的，但是和我们想达到的目标太过遥远，所以我们继续玩转更强悍的工具：<strong>motion</strong>。现在才应该算是真正的开始，之前的那个仅仅是测试下摄像头。</p>
 
-<h3 id="motion">关于motion</h3>
+<h3 id="关于motion">关于motion</h3>
 
 <p>motion的官方网址在<a href="http://www.lavrsen.dk/foswiki/bin/view/Motion/WebHome">这里</a>，总的来说motion是一个可以从摄像头检测出画面变化的工具，在画面变化时(比如有人闯入，或者光线异常等)motion会保存画面，或者保存mpeg(通过ffmpeg)，还可以通过配置在这些事件发生时触发外部的命令，比如发送异常提醒邮件，sms等等。同时它也可以提供http流的实时观看。。真是强大的工具，基本上已经实现了我们所需的核心功能。</p>
 
-<h3 id="motion-1">添加motion</h3>
+<h3 id="添加motion">添加motion</h3>
 
 <p>进入到openwrt的配置里面，可以发现已经包含了motion，直接勾选后编译下载。进入系统后，会发现/etc/motion.conf，为了方便修改，我们把它复制到自己的目录，然后编辑：</p>
 
-<pre><code>cp /etc/motion.conf /root/
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp /etc/motion.conf /root/
 cd /root
 vi motion.conf
-</code></pre>
+</code></pre></div></div>
 
 <p>里面是各种功能配置，每一个参数都可以看看，里面的注释非常的详尽。初次运行，我们大概需要关心一下的参数：</p>
 
@@ -114,17 +76,17 @@ vi motion.conf
 
 <p>在/root下面运行</p>
 
-<pre><code>motion -c motion.conf
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>motion -c motion.conf
+</code></pre></div></div>
 
 <p>启动motion，不出意外的话，会提示错误，显示打开/dev/video0错误。这是因为我们开启了mjpg-streamer，它会开机启动并占用掉我们的cideo0设备，所以首先关掉这个：</p>
 
-<pre><code>/etc/init.d/mjpg-streamer stop
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/init.d/mjpg-streamer stop
+</code></pre></div></div>
 
 <p>再次运行就一切正常了。我们可以在摄像头前面晃动物体，motion就会提示检测到异动，并保存图片，也可以通过web访问openwrt的8081端口，和mjpg-streamer一样的效果，通过http查看到实时的画面。</p>
 
-<h3 id="section">存在的问题</h3>
+<h3 id="存在的问题">存在的问题</h3>
 
 <p>目前，我们至少存在2个问题：</p>
 
@@ -134,7 +96,7 @@ vi motion.conf
   <li>由于ffmpeg有4M以上的体量，所以需要安装ipkg到外挂存储空间；</li>
 </ol>
 
-<h3 id="section-1">外挂存储空间</h3>
+<h3 id="外挂存储空间">外挂存储空间</h3>
 
 <p>这个最方便的解决办法当然是使用U盘了，但是rt5350只有一个u口，为了同时接U盘和摄像头，还需要外挂一个USB hub，刚好我手头有一个杂牌hub，接上即可工作。这里有2点需要注意：</p>
 
@@ -145,7 +107,7 @@ vi motion.conf
 
 <p>U盘的挂载，可以参考我之前的<a href="http://scriptogr.am/ashliu/post/owusb">文章</a>，</p>
 
-<h3 id="motionffmpeg">添加motion对ffmpeg的支持</h3>
+<h3 id="添加motion对ffmpeg的支持">添加motion对ffmpeg的支持</h3>
 
 <p>其实一直在说ffmpeg，应该是不准确的，应该是libffmpeg才对，真正的ffmpeg只是一个命令行工具，libffmpeg才是我们真正需要的。</p>
 
@@ -155,19 +117,19 @@ vi motion.conf
 
 <p>编译没有错误，但是会发现没有生成sysupgrade.bin，原因前面已经提到了，那就是libffmpeg太大，最终会使bin档超过8M的限制，所以LZMA就不会生成它。我们可以先不勾选motion-ffmpeg和libffmpeg，生成一个小的系统，先下载进去，然后再勾选motion-ffmpeg后make一次，虽然不会生成最终的sysupgrade.bin，但是可以在bin/ramips/packages/packages/下面找到单独的libffmpeg和motion-ffmpeg安装文件，我们通过U盘单独安装它们即可。</p>
 
-<h3 id="libffmpeg">添加libffmpeg</h3>
+<h3 id="添加libffmpeg">添加libffmpeg</h3>
 
 <p>openwrt使用opkg来管理包系统，在联网的情况下，可以直接通过opkg来在线安装一些工具，非常的方便。我们这里则是使用opkg来安装本地文件。</p>
 
 <p>把motion-ffmpeg和libffmpeg的包复制到U盘，然后插入开发板。我们首先需要让opkg添加一个到U盘的安装目标，编辑/etc/opkg.conf，在里面添加一个dest</p>
 
-<pre><code>dest usb /mnt/sda4
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dest usb /mnt/sda4
+</code></pre></div></div>
 
 <p>然后进入U盘，先执行libffmpeg的安装</p>
 
-<pre><code>opkg install -d usb libffmpeg-full_*.ipk
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>opkg install -d usb libffmpeg-full_*.ipk
+</code></pre></div></div>
 
 <p>会出现2个错误：其一是提示在/usr/lib/opkg/info/下面缺少ffmpeg.xxxx文件；其二是提示无法创建一些链接。</p>
 
@@ -179,26 +141,26 @@ vi motion.conf
 
 <p>motion-ffmpeg由于比较小，可以直接用：</p>
 
-<pre><code>opkg install motion*.ipk
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>opkg install motion*.ipk
+</code></pre></div></div>
 
 <p>安装到系统里面去。</p>
 
 <p>安装完成后，还需要设置一些环境变量，让shell能够找到我们在U盘中的位置，编辑/etc/profile，添加</p>
 
-<pre><code>export LD_LIBRARY_PATH="/mnt/sda4/usr/lib:/mnt/sda4/lib"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export LD_LIBRARY_PATH="/mnt/sda4/usr/lib:/mnt/sda4/lib"
 export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/mnt/sda4/usr/bin:/mnt/	sda4/usr/sbin
-</code></pre>
+</code></pre></div></div>
 
 <p>然后执行：</p>
 
-<pre><code>source /etc/profile
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source /etc/profile
+</code></pre></div></div>
 
 <p>来更新环境变量。<br />
 至此，motion和ffmpeg就全部就绪。</p>
 
-<h3 id="section-2">最后的效果</h3>
+<h3 id="最后的效果">最后的效果</h3>
 
 <p><strong>最后的效果不是很理想</strong>。原因在于开发板性能不足，无法承载过大的压力。别的不谈，但就一个ffmpeg编码640x480就扛不住了，会直接把内存爆掉，不管设置多少帧率都不行。。所以只能用320x240，小的可怜，而且帧率也就十几的样子。</p>
 
@@ -214,47 +176,34 @@ export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/mnt/sda4/usr/bin:/mnt/	sda4/usr/sbin
 <p><strong>下一个目标是视频在网盘的存储。</strong></p>
 
 
-  </article>
-
-  <div id="vcomments"></div>
-  <script>
-      new Valine({
-          el: '#vcomments',
-          appId: '3WoOx4KUTKADqRr1kjcxYvP2-gzGzoHsz',
-          appKey: '0EKmmcKCr3829RtHmw2fvcq7',
-          notify:false, 
-          verify:false, 
-          avatar:'mm',
-          placeholder: '随意聊聊.'
-      })
-  </script>
-  
-</div>
+  </div><a class="u-url" href="/2015/07/17/openwrt-motion.html" hidden></a>
+</article>
 
       </div>
-    </div>
-
-    <footer class="site-footer">
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Ash的blog</h2>
+    <h2 class="footer-heading">ash的blog</h2>
 
     <div class="footer-col-wrapper">
-      <div class="footer-col  footer-col-1">
+      <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li>Ash的blog</li>
-          <li><a href="mailto:578410647@qq.com">578410647@qq.com</a></li>
-        </ul>
+          <li class="p-name">ash的blog</li><li><a class="u-email" href="mailto:ww7472242@gmail.com">ww7472242@gmail.com</a></li></ul>
       </div>
-      <div class="footer-col  footer-col-3">
-        <p class="text"></p>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ash-liu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ash-liu</span></a></li><li><a href="https://www.twitter.com/ash_liu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">ash_liu</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>知行合一.</p>
       </div>
     </div>
+
   </div>
+
 </footer>
-
-
-  </body>
+</body>
 
 </html>
